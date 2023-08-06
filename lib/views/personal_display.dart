@@ -37,9 +37,10 @@ class _PersonalInfoState extends State<PersonalInfo> {
                       width: MediaQuery.of(context).size.width <= 700
                           ? MediaQuery.of(context).size.width * 0.3
                           : MediaQuery.of(context).size.width * 0.2,
-                      child: const CircleAvatar(
-                        foregroundImage: AssetImage(
-                          'assets/profile2.jpg',
+                      child: CircleAvatar(
+                        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+                        foregroundImage: const AssetImage(
+                          'assets/profile.png',
                         ),
                       ),
                     ),
