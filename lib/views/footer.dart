@@ -33,7 +33,7 @@ class _PortFolioFooterState extends State<PortFolioFooter> {
       child: SizedBox(
         width: widget.width,
         child: widget.width > 700
-            ? // Layout for footer if width of web is greater than 500
+            ? // Layout for footer if width of web is greater than 700
             Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -226,7 +226,7 @@ class _PortFolioFooterState extends State<PortFolioFooter> {
                 ],
               )
             :
-            // Layout arrangement if width is less than 500 px
+            // Layout arrangement if width is less than 700 px
             Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -326,10 +326,10 @@ class _PortFolioFooterState extends State<PortFolioFooter> {
                               height: 24,
                               width: 24,
                             ),
-                            Text(
-                              'LinkedIn',
-                              style: Theme.of(context).textTheme.bodySmall,
-                            )
+                            // Text(
+                            //   'LinkedIn',
+                            //   style: Theme.of(context).textTheme.bodySmall,
+                            // )
                           ],
                         ),
                       ),
@@ -346,19 +346,14 @@ class _PortFolioFooterState extends State<PortFolioFooter> {
                               height: 24,
                               width: 24,
                             ),
-                            Text(
-                              'GitHub',
-                              style: Theme.of(context).textTheme.bodySmall,
-                            )
+                            // Text(
+                            //   'GitHub',
+                            //   style: Theme.of(context).textTheme.bodySmall,
+                            // )
                           ],
                         ),
                       ),
-                    ],
-                  ),
-                  // twitter contact
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
+                      //Twitter account
                       TextButton(
                         onPressed: () {
                           _launchUrl(
@@ -371,15 +366,40 @@ class _PortFolioFooterState extends State<PortFolioFooter> {
                               height: 24,
                               width: 24,
                             ),
-                            Text(
-                              'Twitter',
-                              style: Theme.of(context).textTheme.bodySmall,
-                            )
+                            // Text(
+                            //   'Twitter',
+                            //   style: Theme.of(context).textTheme.bodySmall,
+                            // )
                           ],
                         ),
                       ),
                     ],
                   ),
+                  // twitter contact
+                  // Row(
+                  //   mainAxisAlignment: MainAxisAlignment.center,
+                  //   children: [
+                  //     TextButton(
+                  //       onPressed: () {
+                  //         _launchUrl(
+                  //             'https://www.twitter.com/BumhoNisubire?t=5GPZXPTnBoNh3bHzZA&s=09');
+                  //       },
+                  //       child: Row(
+                  //         children: [
+                  //           SvgPicture.asset(
+                  //             'assets/twitter.svg',
+                  //             height: 24,
+                  //             width: 24,
+                  //           ),
+                  //           // Text(
+                  //           //   'Twitter',
+                  //           //   style: Theme.of(context).textTheme.bodySmall,
+                  //           // )
+                  //         ],
+                  //       ),
+                  //     ),
+                  //   ],
+                  // ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -392,7 +412,8 @@ class _PortFolioFooterState extends State<PortFolioFooter> {
                         style: Theme.of(context).textTheme.displayMedium,
                       )
                     ],
-                  )
+                  ),
+                  const SizedBox(height: 20,)
                 ],
               ),
       ),
