@@ -78,7 +78,7 @@ class _PersonalInfoState extends State<PersonalInfo> {
                           : MediaQuery.of(context).size.width * 0.2,
                       child: const CircleAvatar(
                         foregroundImage: AssetImage(
-                          'assets/profile2.jpg',
+                          'assets/profile.png',
                         ),
                       ),
                     )
