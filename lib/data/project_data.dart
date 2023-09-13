@@ -4,7 +4,7 @@ List projectData = [
     'readMe': 'Blog developed with react native and Django.'
     'Hosted and available to the public, it is a paid project for a client.'
     'Client name is strictly undisclosed.',
-    'image': 'assets/yetublog.jpg',
+    'image': 'assets/yetublog.png',
     'application': false,
     'status': 'in progress', // either complete, initial stage or in progress
     'file': '',
