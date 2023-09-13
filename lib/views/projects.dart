@@ -87,7 +87,8 @@ class _ListOfProjectsState extends State<ListOfProjects> {
                   ),
                   child: ClipRRect(
                     borderRadius: const BorderRadius.vertical(
-                      top: Radius.circular(1),
+                      top: Radius.circular(10),
+                      bottom: Radius.circular(10),
                     ),
                     child: Image.asset(
                       projectData[index]['image'],

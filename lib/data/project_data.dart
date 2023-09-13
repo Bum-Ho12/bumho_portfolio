@@ -1,5 +1,16 @@
 List projectData = [
   {
+    'title': 'YetuBlog.com',
+    'readMe': 'Blog developed with react native and Django.'
+    'Hosted and available to the public, it is a paid project for a client.'
+    'Client name is strictly undisclosed.',
+    'image': 'assets/yetublog.jpg',
+    'application': false,
+    'status': 'in progress', // either complete, initial stage or in progress
+    'file': '',
+    'github_url': 'https://yetublog.com/',
+  },
+  {
     'title': 'Eventend',
     'readMe': 'project to develop an e-commerce with Flutter and Django.',
     'image': 'assets/eventend.png',
