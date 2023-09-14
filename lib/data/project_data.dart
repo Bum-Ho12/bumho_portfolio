@@ -9,6 +9,7 @@ List projectData = [
     'status': 'in progress', // either complete, initial stage or in progress
     'file': '',
     'github_url': 'https://yetublog.com/',
+    'web': true,
   },
   {
     'title': 'Eventend',
@@ -18,6 +19,7 @@ List projectData = [
     'status': 'complete', // either complete, initial stage or in progress
     'file': 'apps/eventend_app-release.apk',
     'github_url': 'https://github.com/Bum-Ho12/EventEnd',
+    'web': false,
   },
   {
     'title': 'python CNN, Web Scraping and other ML implementations',
@@ -29,6 +31,7 @@ List projectData = [
     'status': 'in progress', // either complete, initial stage or in progress
     'file': 'assets/',
     'github_url': 'https://github.com/Bum-Ho12/Neural-Network-Scratch',
+    'web': false,
   },
   {
     'title': 'Status Saver',
@@ -38,6 +41,7 @@ List projectData = [
     'status': 'in progress', // either complete, initial stage or in progress
     'file': '',
     'github_url': 'https://github.com/Bum-Ho12/Status',
+    'web': false,
   },
   {
     'title': 'face-detection-and-gender-determination-with-python',
@@ -50,6 +54,7 @@ List projectData = [
     'file': 'assets/',
     'github_url':
         'https://github.com/Bum-Ho12/face-detection-and-gender-determination-with-python',
+    'web': false,
   },
   {
     'title': 'FindMe',
@@ -61,6 +66,7 @@ List projectData = [
     'status': 'in progress', // either complete, initial stage or in progress
     'file': 'assets/',
     'github_url': '', //https://github.com/Bum-Ho12/findme_project
+    'web': false,
   },
   {
     'title': 'Data-Structures-and-Algorithms-with-python',
@@ -72,6 +78,7 @@ List projectData = [
     'file': 'assets/',
     'github_url':
         'https://github.com/Bum-Ho12/Data-Structures-and-Algorithms-with-python',
+    'web': false,
   },
   {
     'title': 'python-projects',
@@ -82,5 +89,6 @@ List projectData = [
     'status': 'in progress', // either complete, initial stage or in progress
     'file': 'assets/',
     'github_url': 'https://github.com/Bum-Ho12/python-projects',
+    'web': false,
   },
 ];

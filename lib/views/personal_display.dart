@@ -1,5 +1,7 @@
+// import 'package:flutter_svg/svg.dart';
 import 'package:portfolio/app_theme/style_manager.dart';
 import 'package:flutter/material.dart';
+// import 'package:portfolio/data/stack_data.dart';
 
 class PersonalInfo extends StatefulWidget {
   final double width;
@@ -11,12 +13,13 @@ class PersonalInfo extends StatefulWidget {
 
 class _PersonalInfoState extends State<PersonalInfo> {
   List myStacks = [
-    'Software development: mobile and desktop applications',
-    'machine learning and data science',
-    'Programming: Python and Django, Flutter, Java, C++, Visual Basic and Javascript (react native and node.js)',
-    'Computer networking and cloud administration',
-    'Database design and administration',
-    'Animation and Graphics, tools (Blender, Figma and Photoshop,Krita)'
+    'Software development: mobile, web and desktop applications',
+    // 'machine learning and data science',
+    'Backend Development',
+    'Programming',
+    // 'Computer networking and cloud administration',
+    // 'Database design and administration',
+    'Animation and Graphics'
   ];
   @override
   Widget build(BuildContext context) {
@@ -52,7 +55,7 @@ class _PersonalInfoState extends State<PersonalInfo> {
                     ),
                     //Title
                     Text(
-                      'Software and Machine learning/ \n Data Science Engineer',
+                      'Software Engineer',
                       maxLines: 3,
                       textAlign: TextAlign.center,
                       overflow: TextOverflow.ellipsis,
@@ -78,7 +81,7 @@ class _PersonalInfoState extends State<PersonalInfo> {
                           : MediaQuery.of(context).size.width * 0.2,
                       child: CircleAvatar(
                         backgroundColor: Theme.of(context).primaryColor,
-                        foregroundImage:const AssetImage(
+                        foregroundImage: const AssetImage(
                           'assets/profile.png',
                         ),
                       ),
@@ -114,33 +117,79 @@ class _PersonalInfoState extends State<PersonalInfo> {
                   : const SizedBox(),
               // List of stacks and expertise
               SizedBox(
-                width: 210,
-                child: ListView.builder(
-                  shrinkWrap: true,
-                  physics: const NeverScrollableScrollPhysics(),
-                  itemCount: myStacks.length,
-                  itemBuilder: (context, index) {
-                    return Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 8.0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          SizedBox(
-                            width: widget.width <= 600 ? 150 : 200,
-                            child: Text(
-                              myStacks[index],
-                              // textAlign: TextAlign.center,
-                              overflow: TextOverflow.ellipsis,
-                              maxLines: 6,
-                              style: Theme.of(context).textTheme.bodySmall,
-                            ),
+                width: 250,
+                child: Column(
+                  children: [
+                    //list of myStacks
+                    ListView.builder(
+                      shrinkWrap: true,
+                      physics: const NeverScrollableScrollPhysics(),
+                      itemCount: myStacks.length,
+                      itemBuilder: (context, index) {
+                        return Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 8.0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              SizedBox(
+                                width: widget.width <= 600 ? 150 : 200,
+                                child: Text(
+                                  myStacks[index],
+                                  overflow: TextOverflow.ellipsis,
+                                  maxLines: 6,
+                                  style: Theme.of(context).textTheme.bodySmall,
+                                ),
+                              ),
+                            ],
                           ),
-                        ],
-                      ),
-                    );
-                  },
+                        );
+                      },
+                    ),
+                  ],
                 ),
               ),
+              // SizedBox(
+              //   child: Column(children: [
+              //     Wrap(
+              //       spacing: 14.0,
+              //       runSpacing: 14.0,
+              //       children: [
+              //         ...stackWorkData.map((item) {
+              //           return item['category'] == 'language'
+              //               ? SvgPicture.asset(
+              //                   item['asset'],
+              //                   height: MediaQuery.of(context).size.width <= 700
+              //                       ? 24
+              //                       : 50,
+              //                   width: MediaQuery.of(context).size.width <= 700
+              //                       ? 24
+              //                       : 50,
+              //                 )
+              //               : const SizedBox();
+              //         })
+              //       ],
+              //     ),
+              //     Wrap(
+              //       spacing: 14.0,
+              //       runSpacing: 14.0,
+              //       children: [
+              //         ...stackWorkData.map((item) {
+              //           return item['category'] == 'design'
+              //               ? SvgPicture.asset(
+              //                   item['asset'],
+              //                   height: MediaQuery.of(context).size.width <= 700
+              //                       ? 24
+              //                       : 50,
+              //                   width: MediaQuery.of(context).size.width <= 700
+              //                       ? 24
+              //                       : 50,
+              //                 )
+              //               : const SizedBox();
+              //         })
+              //       ],
+              //     ),
+              //   ]),
+              // )
             ],
           ),
         ],

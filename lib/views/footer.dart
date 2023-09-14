@@ -203,6 +203,26 @@ class _PortFolioFooterState extends State<PortFolioFooter> {
                                   ],
                                 ),
                               ),
+                              TextButton(
+                                onPressed: () {
+                                  _launchUrl(
+                                      'https://pin.it/2YbP3WU');
+                                },
+                                child: Row(
+                                  children: [
+                                    SvgPicture.asset(
+                                      'assets/pinterest.svg',
+                                      height: 24,
+                                      width: 24,
+                                    ),
+                                    Text(
+                                      'Pinterest',
+                                      style:
+                                          Theme.of(context).textTheme.bodySmall,
+                                    )
+                                  ],
+                                ),
+                              ),
                             ],
                           ),
                         ],
@@ -373,33 +393,29 @@ class _PortFolioFooterState extends State<PortFolioFooter> {
                           ],
                         ),
                       ),
+                      //pinterest account link
+                      TextButton(
+                                onPressed: () {
+                                  _launchUrl(
+                                      'https://pin.it/2YbP3WU');
+                                },
+                                child: Row(
+                                  children: [
+                                    SvgPicture.asset(
+                                      'assets/pinterest.svg',
+                                      height: 24,
+                                      width: 24,
+                                    ),
+                                    // Text(
+                                    //   'Pinterest',
+                                    //   style:
+                                    //       Theme.of(context).textTheme.bodySmall,
+                                    // )
+                                  ],
+                                ),
+                              ),
                     ],
                   ),
-                  // twitter contact
-                  // Row(
-                  //   mainAxisAlignment: MainAxisAlignment.center,
-                  //   children: [
-                  //     TextButton(
-                  //       onPressed: () {
-                  //         _launchUrl(
-                  //             'https://www.twitter.com/BumhoNisubire?t=5GPZXPTnBoNh3bHzZA&s=09');
-                  //       },
-                  //       child: Row(
-                  //         children: [
-                  //           SvgPicture.asset(
-                  //             'assets/twitter.svg',
-                  //             height: 24,
-                  //             width: 24,
-                  //           ),
-                  //           // Text(
-                  //           //   'Twitter',
-                  //           //   style: Theme.of(context).textTheme.bodySmall,
-                  //           // )
-                  //         ],
-                  //       ),
-                  //     ),
-                  //   ],
-                  // ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [

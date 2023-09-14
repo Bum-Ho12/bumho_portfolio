@@ -171,12 +171,15 @@ class _ListOfProjectsState extends State<ListOfProjects> {
                                           projectData[index]['github_url']);
                                     },
                                     icon: Icon(
-                                      Icons.read_more_rounded,
+                                      projectData[index]['web'] == false?
+                                      Icons.read_more_rounded:Icons.link,
                                       color: Theme.of(context)
                                           .floatingActionButtonTheme
                                           .splashColor,
                                     ),
-                                    tooltip: 'Read source material on GitHub',
+                                    tooltip: projectData[index]['web'] == false?
+                                    'Read source material on GitHub':
+                                    'Access the website',
                                   ),
                                   widget.width <= 500
                                       ? const SizedBox()
@@ -184,7 +187,9 @@ class _ListOfProjectsState extends State<ListOfProjects> {
                                           padding:
                                               const EdgeInsets.only(right: 8.0),
                                           child: Text(
-                                            'Read on GitHub',
+                                            projectData[index]['web'] == false?
+                                            'Read on GitHub':
+                                            'Access the website',
                                             textAlign: TextAlign.center,
                                             style: Theme.of(context)
                                                 .textTheme

@@ -1,3 +1,6 @@
 {
-    "cmake.sourceDirectory": "E:/Projects/portfolio/windows/flutter"
+    "cmake.sourceDirectory": "E:/Projects/portfolio/windows/flutter",
+    "cSpell.words": [
+        "scikitlearn"
+    ]
 }

@@ -1,14 +1,16 @@
+import 'package:flutter_svg/svg.dart';
 import 'package:portfolio/app_theme/style_manager.dart';
 import 'package:portfolio/views/about_personal.dart';
 import 'package:portfolio/views/footer.dart';
 import 'package:portfolio/views/other_info.dart';
 import 'package:portfolio/views/personal_display.dart';
 import 'package:portfolio/views/projects.dart';
-import 'package:portfolio/views/slideshow.dart';
+// import 'package:portfolio/views/slideshow.dart';
 import 'package:flutter/material.dart';
 
 import 'app_theme/theme_manager.dart';
 import 'data/project_data.dart';
+import 'data/stack_data.dart';
 
 void main() {
   runApp(const MyApp());
@@ -133,7 +135,58 @@ class _MyHomePageState extends State<MyHomePage> {
                       PersonalInfo(
                         width: width,
                       ),
-                      ProjectSlideShow(width: width),
+                      // ProjectSlideShow(width: width),
+                      SizedBox(
+                        width: 250,
+                        child: Column(children: [
+                          Wrap(
+                            spacing: 14.0,
+                            runSpacing: 14.0,
+                            children: [
+                              ...stackWorkData.map((item) {
+                                return item['category'] == 'language'
+                                    ? SvgPicture.asset(
+                                        item['asset'],
+                                        height:
+                                            MediaQuery.of(context).size.width <=
+                                                    700
+                                                ? 24
+                                                : 50,
+                                        width:
+                                            MediaQuery.of(context).size.width <=
+                                                    700
+                                                ? 24
+                                                : 50,
+                                      )
+                                    : const SizedBox();
+                              })
+                            ],
+                          ),
+                          Wrap(
+                            spacing: 14.0,
+                            runSpacing: 14.0,
+                            children: [
+                              ...stackWorkData.map((item) {
+                                return item['category'] == 'design'
+                                    ? SvgPicture.asset(
+                                        item['asset'],
+                                        height:
+                                            MediaQuery.of(context).size.width <=
+                                                    700
+                                                ? 24
+                                                : 50,
+                                        width:
+                                            MediaQuery.of(context).size.width <=
+                                                    700
+                                                ? 24
+                                                : 50,
+                                      )
+                                    : const SizedBox();
+                              })
+                            ],
+                          ),
+                        ]),
+                      )
                     ],
                   )
                 // in small screen profile/personal details and slideshow
@@ -145,7 +198,58 @@ class _MyHomePageState extends State<MyHomePage> {
                       PersonalInfo(
                         width: width,
                       ),
-                      ProjectSlideShow(width: width)
+                      // ProjectSlideShow(width: width)
+                      SizedBox(
+                        width: 250,
+                        child: Column(children: [
+                          Wrap(
+                            spacing: 14.0,
+                            runSpacing: 14.0,
+                            children: [
+                              ...stackWorkData.map((item) {
+                                return item['category'] == 'language'
+                                    ? SvgPicture.asset(
+                                        item['asset'],
+                                        height:
+                                            MediaQuery.of(context).size.width <=
+                                                    700
+                                                ? 24
+                                                : 50,
+                                        width:
+                                            MediaQuery.of(context).size.width <=
+                                                    700
+                                                ? 24
+                                                : 50,
+                                      )
+                                    : const SizedBox();
+                              })
+                            ],
+                          ),
+                          Wrap(
+                            spacing: 14.0,
+                            runSpacing: 14.0,
+                            children: [
+                              ...stackWorkData.map((item) {
+                                return item['category'] == 'design'
+                                    ? SvgPicture.asset(
+                                        item['asset'],
+                                        height:
+                                            MediaQuery.of(context).size.width <=
+                                                    700
+                                                ? 24
+                                                : 50,
+                                        width:
+                                            MediaQuery.of(context).size.width <=
+                                                    700
+                                                ? 24
+                                                : 50,
+                                      )
+                                    : const SizedBox();
+                              })
+                            ],
+                          ),
+                        ]),
+                      )
                     ],
                   ),
             columnSizeSpace,

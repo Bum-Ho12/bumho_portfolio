@@ -33,7 +33,7 @@ List slideShowData = [
     ]
   },
   {
-    'title': 'Concept Programming',
+    'title': 'Programming in General',
     'content': 'Primary foundational knowledge in programming',
     'image': 'assets/hardware.jpg',
     'icons': [
