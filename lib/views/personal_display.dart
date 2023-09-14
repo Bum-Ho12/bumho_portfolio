@@ -98,7 +98,7 @@ class _PersonalInfoState extends State<PersonalInfo> {
                         ),
                         //Title
                         Text(
-                          'Software and Machine learning/ \n Data Science Engineer',
+                          'Software Engineer',
                           maxLines: 3,
                           textAlign: TextAlign.center,
                           overflow: TextOverflow.ellipsis,
