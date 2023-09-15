@@ -116,80 +116,58 @@ class _PersonalInfoState extends State<PersonalInfo> {
                     )
                   : const SizedBox(),
               // List of stacks and expertise
-              SizedBox(
+              Container(
+                margin: const EdgeInsets.only(top: 10),
                 width: 250,
-                child: Column(
+                child: Wrap(
+                  runSpacing: 14.0,
+                  spacing: 14.0,
                   children: [
                     //list of myStacks
-                    ListView.builder(
-                      shrinkWrap: true,
-                      physics: const NeverScrollableScrollPhysics(),
-                      itemCount: myStacks.length,
-                      itemBuilder: (context, index) {
-                        return Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 8.0),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              SizedBox(
-                                width: widget.width <= 600 ? 150 : 200,
-                                child: Text(
-                                  myStacks[index],
-                                  overflow: TextOverflow.ellipsis,
-                                  maxLines: 6,
-                                  style: Theme.of(context).textTheme.bodySmall,
-                                ),
-                              ),
-                            ],
-                          ),
-                        );
-                      },
-                    ),
+                    ...myStacks.map((item) {
+                      return Container(
+                        // width: widget.width <= 600 ? 150 : 200,
+                        decoration: BoxDecoration(
+                          color: Theme.of(context).hintColor.withOpacity(0.6),
+                          borderRadius: BorderRadius.circular(5),
+                        ),
+                        padding: const EdgeInsets.all(5),
+                        child: Text(
+                          item,
+                          overflow: TextOverflow.ellipsis,
+                          maxLines: 6,
+                          style: Theme.of(context).textTheme.bodySmall,
+                        ),
+                      );
+                    }),
+                    // ListView.builder(
+                    //   shrinkWrap: true,
+                    //   physics: const NeverScrollableScrollPhysics(),
+                    //   itemCount: myStacks.length,
+                    //   itemBuilder: (context, index) {
+                    //     return Padding(
+                    //       padding: const EdgeInsets.symmetric(vertical: 8.0),
+                    //       child: Row(
+                    //         mainAxisAlignment: MainAxisAlignment.center,
+                    //         children: [
+                    //           Container(
+                    //             width: widget.width <= 600 ? 150 : 200,
+                    //             padding: const EdgeInsets.all(5),
+                    //             child: Text(
+                    //               myStacks[index],
+                    //               overflow: TextOverflow.ellipsis,
+                    //               maxLines: 6,
+                    //               style: Theme.of(context).textTheme.bodySmall,
+                    //             ),
+                    //           ),
+                    //         ],
+                    //       ),
+                    //     );
+                    //   },
+                    // ),
                   ],
                 ),
               ),
-              // SizedBox(
-              //   child: Column(children: [
-              //     Wrap(
-              //       spacing: 14.0,
-              //       runSpacing: 14.0,
-              //       children: [
-              //         ...stackWorkData.map((item) {
-              //           return item['category'] == 'language'
-              //               ? SvgPicture.asset(
-              //                   item['asset'],
-              //                   height: MediaQuery.of(context).size.width <= 700
-              //                       ? 24
-              //                       : 50,
-              //                   width: MediaQuery.of(context).size.width <= 700
-              //                       ? 24
-              //                       : 50,
-              //                 )
-              //               : const SizedBox();
-              //         })
-              //       ],
-              //     ),
-              //     Wrap(
-              //       spacing: 14.0,
-              //       runSpacing: 14.0,
-              //       children: [
-              //         ...stackWorkData.map((item) {
-              //           return item['category'] == 'design'
-              //               ? SvgPicture.asset(
-              //                   item['asset'],
-              //                   height: MediaQuery.of(context).size.width <= 700
-              //                       ? 24
-              //                       : 50,
-              //                   width: MediaQuery.of(context).size.width <= 700
-              //                       ? 24
-              //                       : 50,
-              //                 )
-              //               : const SizedBox();
-              //         })
-              //       ],
-              //     ),
-              //   ]),
-              // )
             ],
           ),
         ],

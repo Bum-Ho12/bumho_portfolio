@@ -5,9 +5,7 @@ import 'package:portfolio/views/footer.dart';
 import 'package:portfolio/views/other_info.dart';
 import 'package:portfolio/views/personal_display.dart';
 import 'package:portfolio/views/projects.dart';
-// import 'package:portfolio/views/slideshow.dart';
 import 'package:flutter/material.dart';
-
 import 'app_theme/theme_manager.dart';
 import 'data/project_data.dart';
 import 'data/stack_data.dart';
@@ -37,6 +35,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  // controller to determine sections in the web app
   final ScrollController _controller = ScrollController();
   //scroll for projects section
   final ScrollController projectController = ScrollController();
@@ -135,51 +134,78 @@ class _MyHomePageState extends State<MyHomePage> {
                       PersonalInfo(
                         width: width,
                       ),
-                      // ProjectSlideShow(width: width),
+                      //displays icons
                       SizedBox(
                         width: 250,
                         child: Column(children: [
+                          //displays icons for languages and frameworks
                           Wrap(
-                            spacing: 14.0,
-                            runSpacing: 14.0,
+                            spacing: 5.0,
+                            runSpacing: 5.0,
                             children: [
                               ...stackWorkData.map((item) {
                                 return item['category'] == 'language'
-                                    ? SvgPicture.asset(
-                                        item['asset'],
-                                        height:
-                                            MediaQuery.of(context).size.width <=
-                                                    700
-                                                ? 24
-                                                : 50,
-                                        width:
-                                            MediaQuery.of(context).size.width <=
-                                                    700
-                                                ? 24
-                                                : 50,
+                                    ? Container(
+                                        padding: const EdgeInsets.all(5),
+                                        decoration: BoxDecoration(
+                                          color: Theme.of(context)
+                                              .hintColor
+                                              .withOpacity(0.6),
+                                          borderRadius:
+                                              BorderRadius.circular(5),
+                                        ),
+                                        child: SvgPicture.asset(
+                                          item['asset'],
+                                          height: MediaQuery.of(context)
+                                                      .size
+                                                      .width <=
+                                                  700
+                                              ? 24
+                                              : 50,
+                                          width: MediaQuery.of(context)
+                                                      .size
+                                                      .width <=
+                                                  700
+                                              ? 24
+                                              : 50,
+                                        ),
                                       )
                                     : const SizedBox();
                               })
                             ],
                           ),
+                          columnSizeSpace,
+                          //displays icons for design softwares
                           Wrap(
-                            spacing: 14.0,
-                            runSpacing: 14.0,
+                            spacing: 5.0,
+                            runSpacing: 5.0,
                             children: [
                               ...stackWorkData.map((item) {
                                 return item['category'] == 'design'
-                                    ? SvgPicture.asset(
-                                        item['asset'],
-                                        height:
-                                            MediaQuery.of(context).size.width <=
-                                                    700
-                                                ? 24
-                                                : 50,
-                                        width:
-                                            MediaQuery.of(context).size.width <=
-                                                    700
-                                                ? 24
-                                                : 50,
+                                    ? Container(
+                                        padding: const EdgeInsets.all(5),
+                                        decoration: BoxDecoration(
+                                          color: Theme.of(context)
+                                              .hintColor
+                                              .withOpacity(0.6),
+                                          borderRadius:
+                                              BorderRadius.circular(5),
+                                        ),
+                                        child: SvgPicture.asset(
+                                          item['asset'],
+                                          height: MediaQuery.of(context)
+                                                      .size
+                                                      .width <=
+                                                  700
+                                              ? 24
+                                              : 50,
+                                          width: MediaQuery.of(context)
+                                                      .size
+                                                      .width <=
+                                                  700
+                                              ? 24
+                                              : 50,
+                                        ),
                                       )
                                     : const SizedBox();
                               })
@@ -208,41 +234,66 @@ class _MyHomePageState extends State<MyHomePage> {
                             children: [
                               ...stackWorkData.map((item) {
                                 return item['category'] == 'language'
-                                    ? SvgPicture.asset(
-                                        item['asset'],
-                                        height:
-                                            MediaQuery.of(context).size.width <=
-                                                    700
-                                                ? 24
-                                                : 50,
-                                        width:
-                                            MediaQuery.of(context).size.width <=
-                                                    700
-                                                ? 24
-                                                : 50,
+                                    ? Container(
+                                        padding: const EdgeInsets.all(5),
+                                        decoration: BoxDecoration(
+                                          color: Theme.of(context)
+                                              .hintColor
+                                              .withOpacity(0.2),
+                                          borderRadius:
+                                              BorderRadius.circular(5),
+                                        ),
+                                        child: SvgPicture.asset(
+                                          item['asset'],
+                                          height: MediaQuery.of(context)
+                                                      .size
+                                                      .width <=
+                                                  700
+                                              ? 24
+                                              : 50,
+                                          width: MediaQuery.of(context)
+                                                      .size
+                                                      .width <=
+                                                  700
+                                              ? 24
+                                              : 50,
+                                        ),
                                       )
                                     : const SizedBox();
                               })
                             ],
                           ),
+                          columnSizeSpace,
                           Wrap(
-                            spacing: 14.0,
-                            runSpacing: 14.0,
+                            spacing: 5.0,
+                            runSpacing: 5.0,
                             children: [
                               ...stackWorkData.map((item) {
                                 return item['category'] == 'design'
-                                    ? SvgPicture.asset(
-                                        item['asset'],
-                                        height:
-                                            MediaQuery.of(context).size.width <=
-                                                    700
-                                                ? 24
-                                                : 50,
-                                        width:
-                                            MediaQuery.of(context).size.width <=
-                                                    700
-                                                ? 24
-                                                : 50,
+                                    ? Container(
+                                        padding: const EdgeInsets.all(5),
+                                        decoration: BoxDecoration(
+                                          color: Theme.of(context)
+                                              .hintColor
+                                              .withOpacity(0.2),
+                                          borderRadius:
+                                              BorderRadius.circular(5),
+                                        ),
+                                        child: SvgPicture.asset(
+                                          item['asset'],
+                                          height: MediaQuery.of(context)
+                                                      .size
+                                                      .width <=
+                                                  700
+                                              ? 24
+                                              : 50,
+                                          width: MediaQuery.of(context)
+                                                      .size
+                                                      .width <=
+                                                  700
+                                              ? 24
+                                              : 50,
+                                        ),
                                       )
                                     : const SizedBox();
                               })
@@ -340,13 +391,9 @@ class _MyHomePageState extends State<MyHomePage> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
+                      //imported and is the section about myself
                       AboutMe(width: width),
-                      // width > 400
-                      //     ? Divider(
-                      //         thickness: 1,
-                      //         color: Theme.of(context).hintColor,
-                      //       )
-                      //     : const SizedBox(),
+                      //title slot for blogs
                       width > 400
                           ? Column(
                               children: [
@@ -360,6 +407,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                   ),
                                 ),
                                 PublishedBlogs(width: width),
+                                // ProjectSlideShow(width: width),
                               ],
                             )
                           : const SizedBox(),
