@@ -52,19 +52,17 @@ class _ListOfSoftwareProjectsState extends State<ListOfSoftwareProjects> {
         itemBuilder: (context, index) {
           return Container(
             margin: viewsMargin,
+            padding: const EdgeInsets.all(5.0),
             width: widget.width <= 500
                 ? widget.width * 0.5
                 : widget.width <= 800
-                    ? MediaQuery.of(context).size.width * 0.35
+                    ? MediaQuery.of(context).size.width * 0.4
                     : widget.width <= 900
                         ? MediaQuery.of(context).size.width * 0.21
                         : MediaQuery.of(context).size.width * 0.2,
             decoration: BoxDecoration(
-              color: Theme.of(context).scaffoldBackgroundColor.withOpacity(0.5),
-              borderRadius: BorderRadius.circular(5),
-              // border: Border.all(
-              //   color: Theme.of(context).hintColor.withOpacity(0.3),
-              // ),
+              // color: Theme.of(context).hintColor.withOpacity(0.5),
+              borderRadius: BorderRadius.circular(10),
             ),
             child: Column(
               children: [
@@ -88,8 +86,8 @@ class _ListOfSoftwareProjectsState extends State<ListOfSoftwareProjects> {
                       ),
                       child: ClipRRect(
                         borderRadius: const BorderRadius.vertical(
-                          top: Radius.circular(10),
-                          bottom: Radius.circular(10),
+                          top: Radius.circular(5),
+                          bottom: Radius.circular(5),
                         ),
                         child: Image.asset(
                           projectData[index]['image'],
@@ -98,123 +96,129 @@ class _ListOfSoftwareProjectsState extends State<ListOfSoftwareProjects> {
                       ),
                     ),
                     Expanded(
-                      // height: 50,
-                      // width: widget.width <= 500
-                      //     ? widget.width * 0.25
-                      //     : widget.width <= 800
-                      //         ? MediaQuery.of(context).size.width * 0.175
-                      //         : widget.width <= 900
-                      //             ? MediaQuery.of(context).size.width * 0.15
-                      //             : MediaQuery.of(context).size.width * 0.1,
                       child: Center(
-                        child: Text(
-                          projectData[index]['title'],
-                          textAlign: TextAlign.start,
-                          softWrap: true,
-                          maxLines: widget.width <= 800 ? 4 : 6,
-                          style: Theme.of(context).textTheme.bodyLarge,
+                        child: Padding(
+                          padding: const EdgeInsets.only(left: 5.0),
+                          child: Text(
+                            projectData[index]['title'],
+                            textAlign: TextAlign.start,
+                            softWrap: true,
+                            maxLines: widget.width <= 800 ? 4 : 6,
+                            style: widget.width <= 800
+                                ? Theme.of(context).textTheme.bodySmall
+                                : Theme.of(context).textTheme.bodyLarge,
+                          ),
                         ),
                       ),
                     ),
                   ],
                 ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 3.0),
+                  child: Container(
+                    height: 1,
+                    color: Theme.of(context).hintColor.withOpacity(0.6),
+                  ),
+                ),
                 Column(
                   children: [
-                    widget.width <= 800
-                        ? const SizedBox()
-                        : Padding(
-                            padding: const EdgeInsets.all(4),
-                            child: SizedBox(
-                              // height: 50,
-                              // width: 50,
-                              child: Text(
-                                projectData[index]['readMe'],
-                                maxLines: 3,
-                                textAlign: TextAlign.start,
-                                overflow: TextOverflow.ellipsis,
-                                style: Theme.of(context).textTheme.bodySmall,
-                              ),
-                            ),
+                    Padding(
+                      padding: const EdgeInsets.all(4),
+                      child: Text(
+                        projectData[index]['readMe'],
+                        maxLines: 2,
+                        textAlign: TextAlign.start,
+                        overflow: TextOverflow.ellipsis,
+                        style: Theme.of(context).textTheme.bodySmall,
+                      ),
+                    ),
+                    Container(
+                      decoration: BoxDecoration(
+                        color: Theme.of(context).hintColor.withOpacity(0.5),
+                        // borderRadius: const BorderRadius.vertical(
+                        //     bottom: Radius.circular(10)),
+                      ),
+                      child: Row(
+                        mainAxisAlignment: viewsEndAlignment,
+                        children: [
+                          projectData[index]['application'] == true
+                              ? Column(
+                                  mainAxisAlignment: viewsEvenAlignment,
+                                  children: [
+                                    IconButton(
+                                      onPressed: () {
+                                        setState(
+                                          () {
+                                            fileDownloader(
+                                                projectData[index]['file']);
+                                          },
+                                        );
+                                      },
+                                      icon: Icon(
+                                        Icons.cloud_download_rounded,
+                                        color: Theme.of(context)
+                                            .floatingActionButtonTheme
+                                            .splashColor,
+                                      ),
+                                      tooltip: 'Download application',
+                                    ),
+                                    // widget.width <= 900
+                                    //     ? const SizedBox()
+                                    //     : Text(
+                                    //         'Download',
+                                    //         textAlign: TextAlign.center,
+                                    //         style: Theme.of(context)
+                                    //             .textTheme
+                                    //             .bodySmall,
+                                    //       )
+                                  ],
+                                )
+                              : const SizedBox(),
+                          const SizedBox(
+                            width: 10,
                           ),
-                    Row(
-                      mainAxisAlignment: viewsEndAlignment,
-                      children: [
-                        projectData[index]['application'] == true
-                            ? Column(
-                                mainAxisAlignment: viewsEvenAlignment,
-                                children: [
-                                  IconButton(
-                                    onPressed: () {
-                                      setState(
-                                        () {
-                                          fileDownloader(
-                                              projectData[index]['file']);
-                                        },
-                                      );
-                                    },
-                                    icon: Icon(
-                                      Icons.cloud_download_rounded,
-                                      color: Theme.of(context)
-                                          .floatingActionButtonTheme
-                                          .splashColor,
+                          projectData[index]['github_url'].toString().isNotEmpty
+                              ? Column(
+                                  mainAxisAlignment: viewsEvenAlignment,
+                                  children: [
+                                    IconButton(
+                                      onPressed: () {
+                                        _launchUrl(
+                                            projectData[index]['github_url']);
+                                      },
+                                      icon: Icon(
+                                        projectData[index]['web'] == false
+                                            ? Icons.read_more_rounded
+                                            : Icons.link,
+                                        color: Theme.of(context)
+                                            .floatingActionButtonTheme
+                                            .splashColor,
+                                      ),
+                                      tooltip:
+                                          projectData[index]['web'] == false
+                                              ? 'Read source material on GitHub'
+                                              : 'Access the website',
                                     ),
-                                    tooltip: 'Download application',
-                                  ),
-                                  widget.width <= 500
-                                      ? const SizedBox()
-                                      : Text(
-                                          'Download',
-                                          textAlign: TextAlign.center,
-                                          style: Theme.of(context)
-                                              .textTheme
-                                              .bodySmall,
-                                        )
-                                ],
-                              )
-                            : const SizedBox(),
-                        const SizedBox(
-                          width: 10,
-                        ),
-                        projectData[index]['github_url'].toString().isNotEmpty
-                            ? Column(
-                                mainAxisAlignment: viewsEvenAlignment,
-                                children: [
-                                  IconButton(
-                                    onPressed: () {
-                                      _launchUrl(
-                                          projectData[index]['github_url']);
-                                    },
-                                    icon: Icon(
-                                      projectData[index]['web'] == false
-                                          ? Icons.read_more_rounded
-                                          : Icons.link,
-                                      color: Theme.of(context)
-                                          .floatingActionButtonTheme
-                                          .splashColor,
-                                    ),
-                                    tooltip: projectData[index]['web'] == false
-                                        ? 'Read source material on GitHub'
-                                        : 'Access the website',
-                                  ),
-                                  widget.width <= 500
-                                      ? const SizedBox()
-                                      : Padding(
-                                          padding:
-                                              const EdgeInsets.only(right: 8.0),
-                                          child: Text(
-                                            projectData[index]['web'] == false
-                                                ? 'Read on GitHub'
-                                                : 'Access the website',
-                                            textAlign: TextAlign.center,
-                                            style: Theme.of(context)
-                                                .textTheme
-                                                .bodySmall,
-                                          ),
-                                        )
-                                ],
-                              )
-                            : const SizedBox(),
-                      ],
+                                    // widget.width <= 900
+                                    //     ? const SizedBox()
+                                    //     : Padding(
+                                    //         padding:
+                                    //             const EdgeInsets.only(right: 8.0),
+                                    //         child: Text(
+                                    //           projectData[index]['web'] == false
+                                    //               ? 'Read on GitHub'
+                                    //               : 'Access the website',
+                                    //           textAlign: TextAlign.center,
+                                    //           style: Theme.of(context)
+                                    //               .textTheme
+                                    //               .bodySmall,
+                                    //         ),
+                                    //       )
+                                  ],
+                                )
+                              : const SizedBox(),
+                        ],
+                      ),
                     )
                   ],
                 ),

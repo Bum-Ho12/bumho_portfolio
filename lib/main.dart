@@ -384,11 +384,7 @@ class _MyHomePageState extends State<MyHomePage> {
             // ),
             columnSizeSpace,
             SizedBox(
-              height: width <= 500
-                  ? 200
-                  : width <= 800
-                      ? 210
-                      : 260,
+              height: width <= 800 ? 210 : 260,
               child: ListOfSoftwareProjects(
                 width: width,
                 projectController: projectController,
