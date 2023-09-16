@@ -4,8 +4,9 @@ import 'package:portfolio/views/about_personal.dart';
 import 'package:portfolio/views/footer.dart';
 import 'package:portfolio/views/other_info.dart';
 import 'package:portfolio/views/personal_display.dart';
-import 'package:portfolio/views/projects.dart';
+// import 'package:portfolio/views/projects.dart';
 import 'package:flutter/material.dart';
+import 'package:portfolio/views/software_projects.dart';
 import 'app_theme/theme_manager.dart';
 import 'data/project_data.dart';
 import 'data/stack_data.dart';
@@ -370,13 +371,25 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
             // horizontal list of projects publicly available
+            // SizedBox(
+            //   height: width <= 500
+            //       ? 300
+            //       : width <= 800
+            //           ? 310
+            //           : 360,
+            //   child: ListOfProjects(
+            //     width: width,
+            //     projectController: projectController,
+            //   ),
+            // ),
+            columnSizeSpace,
             SizedBox(
               height: width <= 500
-                  ? 300
+                  ? 200
                   : width <= 800
-                      ? 310
-                      : 360,
-              child: ListOfProjects(
+                      ? 210
+                      : 260,
+              child: ListOfSoftwareProjects(
                 width: width,
                 projectController: projectController,
               ),
