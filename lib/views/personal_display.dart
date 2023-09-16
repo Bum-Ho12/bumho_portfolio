@@ -26,7 +26,8 @@ class _PersonalInfoState extends State<PersonalInfo> {
     return Container(
       margin: viewsMargin,
       child: Row(
-        mainAxisAlignment: viewsEvenAlignment,
+        mainAxisAlignment:
+            widget.width <= 800 ? MainAxisAlignment.center : viewsEvenAlignment,
         children: [
           // Profile Photo on desktop width
           // comes on the side of the details
