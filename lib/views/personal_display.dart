@@ -120,6 +120,11 @@ class _PersonalInfoState extends State<PersonalInfo> {
               Container(
                 margin: const EdgeInsets.only(top: 10),
                 width: 250,
+                padding: viewsPadding,
+                // decoration: BoxDecoration(
+                //   color: Theme.of(context).scaffoldBackgroundColor,
+                //   borderRadius: BorderRadius.circular(10),
+                // ),
                 child: Wrap(
                   runSpacing: 14.0,
                   spacing: 14.0,

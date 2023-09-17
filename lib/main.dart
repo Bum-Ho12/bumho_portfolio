@@ -128,182 +128,202 @@ class _MyHomePageState extends State<MyHomePage> {
           children: [
             // in wide screens profile/personal details and slideshow appear
             // in  a row
-            width > 1000
-                ? Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      PersonalInfo(
-                        width: width,
-                      ),
-                      //displays icons
-                      SizedBox(
-                        width: 250,
-                        child: Column(children: [
-                          //displays icons for languages and frameworks
-                          Wrap(
-                            spacing: 5.0,
-                            runSpacing: 5.0,
-                            children: [
-                              ...stackWorkData.map((item) {
-                                return item['category'] == 'language'
-                                    ? Container(
-                                        padding: const EdgeInsets.all(5),
-                                        decoration: BoxDecoration(
-                                          color: Theme.of(context)
-                                              .hintColor
-                                              .withOpacity(0.6),
-                                          borderRadius:
-                                              BorderRadius.circular(5),
-                                        ),
-                                        child: SvgPicture.asset(
-                                          item['asset'],
-                                          height: MediaQuery.of(context)
-                                                      .size
-                                                      .width <=
-                                                  700
-                                              ? 24
-                                              : 50,
-                                          width: MediaQuery.of(context)
-                                                      .size
-                                                      .width <=
-                                                  700
-                                              ? 24
-                                              : 50,
-                                        ),
-                                      )
-                                    : const SizedBox();
-                              })
-                            ],
-                          ),
-                          columnSizeSpace,
-                          //displays icons for design softwares
-                          Wrap(
-                            spacing: 5.0,
-                            runSpacing: 5.0,
-                            children: [
-                              ...stackWorkData.map((item) {
-                                return item['category'] == 'design'
-                                    ? Container(
-                                        padding: const EdgeInsets.all(5),
-                                        decoration: BoxDecoration(
-                                          color: Theme.of(context)
-                                              .hintColor
-                                              .withOpacity(0.6),
-                                          borderRadius:
-                                              BorderRadius.circular(5),
-                                        ),
-                                        child: SvgPicture.asset(
-                                          item['asset'],
-                                          height: MediaQuery.of(context)
-                                                      .size
-                                                      .width <=
-                                                  700
-                                              ? 24
-                                              : 50,
-                                          width: MediaQuery.of(context)
-                                                      .size
-                                                      .width <=
-                                                  700
-                                              ? 24
-                                              : 50,
-                                        ),
-                                      )
-                                    : const SizedBox();
-                              })
-                            ],
-                          ),
-                        ]),
-                      )
-                    ],
-                  )
-                // in small screen profile/personal details and slideshow
-                // appear in a column
-                : Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      PersonalInfo(
-                        width: width,
-                      ),
-                      // ProjectSlideShow(width: width)
-                      SizedBox(
-                        width: 250,
-                        child: Column(children: [
-                          Wrap(
-                            spacing: 14.0,
-                            runSpacing: 14.0,
-                            children: [
-                              ...stackWorkData.map((item) {
-                                return item['category'] == 'language'
-                                    ? Container(
-                                        padding: const EdgeInsets.all(5),
-                                        decoration: BoxDecoration(
-                                          color: Theme.of(context)
-                                              .hintColor
-                                              .withOpacity(0.2),
-                                          borderRadius:
-                                              BorderRadius.circular(5),
-                                        ),
-                                        child: SvgPicture.asset(
-                                          item['asset'],
-                                          height: MediaQuery.of(context)
-                                                      .size
-                                                      .width <=
-                                                  700
-                                              ? 24
-                                              : 50,
-                                          width: MediaQuery.of(context)
-                                                      .size
-                                                      .width <=
-                                                  700
-                                              ? 24
-                                              : 50,
-                                        ),
-                                      )
-                                    : const SizedBox();
-                              })
-                            ],
-                          ),
-                          columnSizeSpace,
-                          Wrap(
-                            spacing: 5.0,
-                            runSpacing: 5.0,
-                            children: [
-                              ...stackWorkData.map((item) {
-                                return item['category'] == 'design'
-                                    ? Container(
-                                        padding: const EdgeInsets.all(5),
-                                        decoration: BoxDecoration(
-                                          color: Theme.of(context)
-                                              .hintColor
-                                              .withOpacity(0.2),
-                                          borderRadius:
-                                              BorderRadius.circular(5),
-                                        ),
-                                        child: SvgPicture.asset(
-                                          item['asset'],
-                                          height: MediaQuery.of(context)
-                                                      .size
-                                                      .width <=
-                                                  700
-                                              ? 24
-                                              : 50,
-                                          width: MediaQuery.of(context)
-                                                      .size
-                                                      .width <=
-                                                  700
-                                              ? 24
-                                              : 50,
-                                        ),
-                                      )
-                                    : const SizedBox();
-                              })
-                            ],
-                          ),
-                        ]),
-                      )
-                    ],
-                  ),
+            Container(
+              margin: viewsMargin,
+              padding: viewsPadding,
+              decoration: BoxDecoration(
+                color: Theme.of(context).hintColor.withOpacity(0.1),
+                borderRadius: const BorderRadius.vertical(
+                  top: Radius.circular(10),
+                ),
+              ),
+              child: width > 1000
+                  ? Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        PersonalInfo(
+                          width: width,
+                        ),
+                        //displays icons
+                        Container(
+                          padding: viewsPadding,
+                          // decoration: BoxDecoration(
+                          //   color: Theme.of(context).scaffoldBackgroundColor,
+                          //   borderRadius: BorderRadius.circular(10),
+                          // ),
+                          width: 250,
+                          child: Column(children: [
+                            //displays icons for languages and frameworks
+                            Wrap(
+                              spacing: 5.0,
+                              runSpacing: 5.0,
+                              children: [
+                                ...stackWorkData.map((item) {
+                                  return item['category'] == 'language'
+                                      ? Container(
+                                          padding: const EdgeInsets.all(5),
+                                          decoration: BoxDecoration(
+                                            color: Theme.of(context)
+                                                .hintColor
+                                                .withOpacity(0.6),
+                                            borderRadius:
+                                                BorderRadius.circular(5),
+                                          ),
+                                          child: SvgPicture.asset(
+                                            item['asset'],
+                                            height: MediaQuery.of(context)
+                                                        .size
+                                                        .width <=
+                                                    700
+                                                ? 24
+                                                : 50,
+                                            width: MediaQuery.of(context)
+                                                        .size
+                                                        .width <=
+                                                    700
+                                                ? 24
+                                                : 50,
+                                          ),
+                                        )
+                                      : const SizedBox();
+                                })
+                              ],
+                            ),
+                            columnSizeSpace,
+                            //displays icons for design softwares
+                            Wrap(
+                              spacing: 5.0,
+                              runSpacing: 5.0,
+                              children: [
+                                ...stackWorkData.map((item) {
+                                  return item['category'] == 'design'
+                                      ? Container(
+                                          padding: const EdgeInsets.all(5),
+                                          decoration: BoxDecoration(
+                                            color: Theme.of(context)
+                                                .hintColor
+                                                .withOpacity(0.6),
+                                            borderRadius:
+                                                BorderRadius.circular(5),
+                                          ),
+                                          child: SvgPicture.asset(
+                                            item['asset'],
+                                            height: MediaQuery.of(context)
+                                                        .size
+                                                        .width <=
+                                                    700
+                                                ? 24
+                                                : 50,
+                                            width: MediaQuery.of(context)
+                                                        .size
+                                                        .width <=
+                                                    700
+                                                ? 24
+                                                : 50,
+                                          ),
+                                        )
+                                      : const SizedBox();
+                                })
+                              ],
+                            ),
+                          ]),
+                        )
+                      ],
+                    )
+                  // in small screen profile/personal details and slideshow
+                  // appear in a column
+                  : Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        PersonalInfo(
+                          width: width,
+                        ),
+                        // ProjectSlideShow(width: width)
+                        Container(
+                          padding: viewsPadding,
+                          // decoration: BoxDecoration(
+                          //   color: Theme.of(context).scaffoldBackgroundColor,
+                          //   borderRadius: BorderRadius.circular(10),
+                          // ),
+                          width: 250,
+                          child: Column(children: [
+                            Wrap(
+                              spacing: 14.0,
+                              runSpacing: 14.0,
+                              children: [
+                                ...stackWorkData.map((item) {
+                                  return item['category'] == 'language'
+                                      ? Container(
+                                          padding: const EdgeInsets.all(5),
+                                          decoration: BoxDecoration(
+                                            color: Theme.of(context)
+                                                .hintColor
+                                                .withOpacity(0.2),
+                                            borderRadius:
+                                                BorderRadius.circular(5),
+                                          ),
+                                          child: SvgPicture.asset(
+                                            item['asset'],
+                                            height: MediaQuery.of(context)
+                                                        .size
+                                                        .width <=
+                                                    700
+                                                ? 24
+                                                : 50,
+                                            width: MediaQuery.of(context)
+                                                        .size
+                                                        .width <=
+                                                    700
+                                                ? 24
+                                                : 50,
+                                          ),
+                                        )
+                                      : const SizedBox();
+                                })
+                              ],
+                            ),
+                            columnSizeSpace,
+                            Wrap(
+                              spacing: 5.0,
+                              runSpacing: 5.0,
+                              children: [
+                                ...stackWorkData.map((item) {
+                                  return item['category'] == 'design'
+                                      ? Container(
+                                          padding: const EdgeInsets.all(5),
+                                          decoration: BoxDecoration(
+                                            color: Theme.of(context)
+                                                .hintColor
+                                                .withOpacity(0.2),
+                                            borderRadius:
+                                                BorderRadius.circular(5),
+                                          ),
+                                          child: SvgPicture.asset(
+                                            item['asset'],
+                                            height: MediaQuery.of(context)
+                                                        .size
+                                                        .width <=
+                                                    700
+                                                ? 24
+                                                : 50,
+                                            width: MediaQuery.of(context)
+                                                        .size
+                                                        .width <=
+                                                    700
+                                                ? 24
+                                                : 50,
+                                          ),
+                                        )
+                                      : const SizedBox();
+                                })
+                              ],
+                            ),
+                          ]),
+                        )
+                      ],
+                    ),
+            ),
             columnSizeSpace,
             Container(
               padding: viewsPadding,
@@ -370,21 +390,22 @@ class _MyHomePageState extends State<MyHomePage> {
                 ],
               ),
             ),
-            // horizontal list of projects publicly available
-            // SizedBox(
-            //   height: width <= 500
-            //       ? 300
-            //       : width <= 800
-            //           ? 310
-            //           : 360,
-            //   child: ListOfProjects(
-            //     width: width,
-            //     projectController: projectController,
-            //   ),
-            // ),
             columnSizeSpace,
-            SizedBox(
-              height: width <= 800 ? 210 : 260,
+            Container(
+              height: width <= 800 ? 230 : 260,
+              margin: const EdgeInsets.symmetric(
+                horizontal: 8,
+              ),
+              padding: const EdgeInsets.symmetric(
+                horizontal: 8,
+                vertical: 2,
+              ),
+              decoration: BoxDecoration(
+                color: Theme.of(context).hintColor.withOpacity(0.1),
+                borderRadius: const BorderRadius.vertical(
+                  top: Radius.circular(10),
+                ),
+              ),
               child: ListOfSoftwareProjects(
                 width: width,
                 projectController: projectController,

@@ -58,7 +58,7 @@ class _ListOfSoftwareProjectsState extends State<ListOfSoftwareProjects> {
                 : widget.width <= 800
                     ? MediaQuery.of(context).size.width * 0.4
                     : widget.width <= 900
-                        ? MediaQuery.of(context).size.width * 0.21
+                        ? MediaQuery.of(context).size.width * 0.3
                         : MediaQuery.of(context).size.width * 0.2,
             decoration: BoxDecoration(
               // color: Theme.of(context).hintColor.withOpacity(0.5),
