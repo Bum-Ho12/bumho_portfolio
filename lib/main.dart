@@ -2,7 +2,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:portfolio/app_theme/style_manager.dart';
 import 'package:portfolio/views/about_personal.dart';
 import 'package:portfolio/views/footer.dart';
-import 'package:portfolio/views/other_info.dart';
+// import 'package:portfolio/views/other_info.dart';
 import 'package:portfolio/views/personal_display.dart';
 // import 'package:portfolio/views/projects.dart';
 import 'package:flutter/material.dart';
@@ -66,7 +66,10 @@ class _MyHomePageState extends State<MyHomePage> {
                   _goToSection(0);
                 });
               },
-              icon: const Icon(Icons.home_filled),
+              icon: Icon(
+                Icons.home_filled,
+                size: width <= 700 ? 24 : 30,
+              ),
               tooltip: 'Go to top, Personal section',
             ),
             const Spacer(),
@@ -82,7 +85,10 @@ class _MyHomePageState extends State<MyHomePage> {
                   );
                 });
               },
-              icon: const Icon(Icons.apps),
+              icon: Icon(
+                Icons.apps,
+                size: width <= 700 ? 24 : 30,
+              ),
               tooltip: 'Projects and apps worked upon',
             ),
             IconButton(
@@ -99,8 +105,11 @@ class _MyHomePageState extends State<MyHomePage> {
                   );
                 });
               },
-              icon: const Icon(Icons.newspaper_rounded),
-              tooltip: 'News and Blogs',
+              icon: Icon(
+                Icons.cast_for_education_outlined,
+                size: width <= 700 ? 24 : 30,
+              ),
+              tooltip: 'Career section',
             ),
             IconButton(
               onPressed: () {
@@ -116,7 +125,10 @@ class _MyHomePageState extends State<MyHomePage> {
                   );
                 });
               },
-              icon: const Icon(Icons.contact_page_outlined),
+              icon: Icon(
+                Icons.contact_page_outlined,
+                size: width <= 700 ? 24 : 30,
+              ),
               tooltip: 'Contact Details',
             ),
           ],
@@ -412,58 +424,17 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
             columnSizeSpace,
+            Container(
+              padding: viewsPadding,
+              child: Text(
+                'My Career',
+                style: Theme.of(context).textTheme.headlineMedium,
+              ),
+            ),
+            columnSizeSpace,
             Padding(
               padding: viewsPadding,
-              // column for the blogs and about section
-              child: Column(
-                children: [
-                  // wide screen blog and about appear in the same row
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      //imported and is the section about myself
-                      AboutMe(width: width),
-                      //title slot for blogs
-                      width > 400
-                          ? Column(
-                              children: [
-                                Container(
-                                  padding: viewsPadding,
-                                  child: Text(
-                                    'Published Blogs',
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .headlineSmall,
-                                  ),
-                                ),
-                                PublishedBlogs(width: width),
-                                // ProjectSlideShow(width: width),
-                              ],
-                            )
-                          : const SizedBox(),
-                    ],
-                  ),
-                  // small screen blog and about appear in column form
-                  width <= 400
-                      ? SizedBox(
-                          height: 260,
-                          child: Column(
-                            children: [
-                              Container(
-                                padding: viewsPadding,
-                                child: Text(
-                                  'Published Blogs',
-                                  style:
-                                      Theme.of(context).textTheme.headlineSmall,
-                                ),
-                              ),
-                              PublishedBlogs(width: width),
-                            ],
-                          ),
-                        )
-                      : const SizedBox(),
-                ],
-              ),
+              child: AboutMe(width: width),
             ),
             // bottom part of website with the contact and social media
             // information

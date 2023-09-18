@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/app_theme/style_manager.dart';
+import 'package:portfolio/data/education_history.dart';
 
 class ContentCard extends StatefulWidget {
   final double width;
+  final int index;
   const ContentCard({
     required this.width,
+    required this.index,
     super.key,
   });
 
@@ -15,21 +19,97 @@ class _ContentCardState extends State<ContentCard> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(5.0),
-      width: widget.width <= 500
-          ? widget.width * 0.5
-          : widget.width <= 800
-              ? MediaQuery.of(context).size.width * 0.4
-              : widget.width <= 900
-                  ? MediaQuery.of(context).size.width * 0.3
-                  : MediaQuery.of(context).size.width * 0.2,
-      child: Stack(
-        children: [
-          CircleAvatar(
-            child: Image.asset('')
-          )
-        ],
-      )
-    );
+        padding: const EdgeInsets.all(5.0),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10),
+          border: Border.all(
+            width: 1,
+            color: Theme.of(context).hintColor.withOpacity(0.6),
+          ),
+        ),
+        height: widget.width <= 700 ? 150 : 200,
+        margin: viewsMargin,
+        width: widget.width <= 700
+            ? widget.width * 0.8
+            : widget.width <= 900
+                ? MediaQuery.of(context).size.width * 0.3
+                : MediaQuery.of(context).size.width * 0.2,
+        child: Column(
+          children: [
+            Container(
+              margin: const EdgeInsets.only(left: 10, top: 5),
+              child: Column(
+                children: [
+                  Row(
+                    children: [
+                      Container(
+                        padding: viewsPadding,
+                        decoration: BoxDecoration(
+                          color: Theme.of(context).primaryColor,
+                          borderRadius: BorderRadius.circular(50),
+                        ),
+                        // height: 70,
+                        child: CircleAvatar(
+                          backgroundColor: Theme.of(context).primaryColor,
+                          foregroundImage:
+                              AssetImage(educationHistory[widget.index]['asset']),
+                        ),
+                      ),
+                      Container(
+                        padding: const EdgeInsets.symmetric(
+                          vertical: 2,
+                          horizontal: 5,
+                        ),
+                        width: widget.width <= 700
+                            ? widget.width * 0.5
+                            : widget.width <= 900
+                                ? MediaQuery.of(context).size.width * 0.15
+                                : MediaQuery.of(context).size.width * 0.1,
+                        child: Text(
+                          educationHistory[widget.index]['institution'],
+                          overflow: TextOverflow.ellipsis,
+                          textAlign: TextAlign.start,
+                          maxLines: 3,
+                          style: Theme.of(context).textTheme.headlineSmall,
+                        ),
+                      )
+                    ],
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 2.0),
+                    child: Container(
+                      height: 2,
+                      width: widget.width <= 700
+                          ? widget.width * 0.8
+                          : widget.width <= 900
+                              ? MediaQuery.of(context).size.width * 0.25
+                              : MediaQuery.of(context).size.width * 0.16,
+                      color: Theme.of(context).hintColor.withOpacity(0.6),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Container(
+              margin: const EdgeInsets.only(left: 10),
+              child: Container(
+                margin: const EdgeInsets.only(top: 20),
+                // height: 110,
+                width: widget.width <= 700
+                    ? widget.width * 0.8
+                    : widget.width <= 900
+                        ? MediaQuery.of(context).size.width * 0.27
+                        : MediaQuery.of(context).size.width * 0.18,
+                child: Text(
+                  educationHistory[widget.index]['about'],
+                  overflow: TextOverflow.ellipsis,
+                  textAlign: TextAlign.start,
+                  maxLines: 6,
+                  style: Theme.of(context).textTheme.bodySmall,
+                ),
+              ),
+            ),
+          ],
+        ));
   }
 }
