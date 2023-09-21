@@ -5,15 +5,10 @@ import 'package:flutter/material.dart';
 import 'package:link_preview_generator/link_preview_generator.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class PublishedBlogs extends StatefulWidget {
+class PublishedBlogs extends StatelessWidget {
   final double width;
   const PublishedBlogs({required this.width, super.key});
 
-  @override
-  State<PublishedBlogs> createState() => _PublishedBlogsState();
-}
-
-class _PublishedBlogsState extends State<PublishedBlogs> {
   Future<void> _launchUrl(url) async {
     Uri url0 = Uri.parse(url);
     if (!await launchUrl(url0)) {
@@ -27,7 +22,7 @@ class _PublishedBlogsState extends State<PublishedBlogs> {
     return Container(
       margin: viewsMargin,
       height: 200,
-      width: widget.width <= 400 ? widget.width * 0.85 : widget.width * 0.4,
+      width: width <= 400 ? width * 0.85 : width * 0.4,
       decoration: BoxDecoration(borderRadius: BorderRadius.circular(10)),
       child: blogData.isNotEmpty
           ? CarouselSlider.builder(
@@ -42,11 +37,11 @@ class _PublishedBlogsState extends State<PublishedBlogs> {
                 // aligns all information of the stack
                 return Container(
                   height: 190,
-                  width: widget.width <= 400
-                      ? widget.width * 0.4
-                      : widget.width <= 600
-                          ? widget.width * 0.3
-                          : widget.width * 0.15,
+                  width: width <= 400
+                      ? width * 0.4
+                      : width <= 600
+                          ? width * 0.3
+                          : width * 0.15,
                   margin: const EdgeInsets.symmetric(horizontal: 5),
                   decoration: BoxDecoration(
                       color: Theme.of(context).hintColor.withOpacity(0.5),

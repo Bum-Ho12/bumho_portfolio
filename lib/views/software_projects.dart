@@ -61,7 +61,6 @@ class _ListOfSoftwareProjectsState extends State<ListOfSoftwareProjects> {
                         ? MediaQuery.of(context).size.width * 0.3
                         : MediaQuery.of(context).size.width * 0.2,
             decoration: BoxDecoration(
-              // color: Theme.of(context).hintColor.withOpacity(0.5),
               borderRadius: BorderRadius.circular(10),
             ),
             child: Column(
@@ -77,7 +76,6 @@ class _ListOfSoftwareProjectsState extends State<ListOfSoftwareProjects> {
                               : widget.width <= 900
                                   ? MediaQuery.of(context).size.width * 0.15
                                   : MediaQuery.of(context).size.width * 0.1,
-                      // margin: const EdgeInsets.only(bottom: 8),
                       decoration: BoxDecoration(
                         color: Theme.of(context).hintColor.withOpacity(0.2),
                         borderRadius: const BorderRadius.vertical(
@@ -135,8 +133,6 @@ class _ListOfSoftwareProjectsState extends State<ListOfSoftwareProjects> {
                     Container(
                       decoration: BoxDecoration(
                         color: Theme.of(context).hintColor.withOpacity(0.5),
-                        // borderRadius: const BorderRadius.vertical(
-                        //     bottom: Radius.circular(10)),
                       ),
                       child: Row(
                         mainAxisAlignment: viewsEndAlignment,
@@ -162,15 +158,6 @@ class _ListOfSoftwareProjectsState extends State<ListOfSoftwareProjects> {
                                       ),
                                       tooltip: 'Download application',
                                     ),
-                                    // widget.width <= 900
-                                    //     ? const SizedBox()
-                                    //     : Text(
-                                    //         'Download',
-                                    //         textAlign: TextAlign.center,
-                                    //         style: Theme.of(context)
-                                    //             .textTheme
-                                    //             .bodySmall,
-                                    //       )
                                   ],
                                 )
                               : const SizedBox(),
@@ -189,7 +176,7 @@ class _ListOfSoftwareProjectsState extends State<ListOfSoftwareProjects> {
                                       icon: Icon(
                                         projectData[index]['web'] == false
                                             ? Icons.read_more_rounded
-                                            : Icons.link,
+                                            : Icons.launch_outlined,
                                         color: Theme.of(context)
                                             .floatingActionButtonTheme
                                             .splashColor,
@@ -199,21 +186,6 @@ class _ListOfSoftwareProjectsState extends State<ListOfSoftwareProjects> {
                                               ? 'Read source material on GitHub'
                                               : 'Access the website',
                                     ),
-                                    // widget.width <= 900
-                                    //     ? const SizedBox()
-                                    //     : Padding(
-                                    //         padding:
-                                    //             const EdgeInsets.only(right: 8.0),
-                                    //         child: Text(
-                                    //           projectData[index]['web'] == false
-                                    //               ? 'Read on GitHub'
-                                    //               : 'Access the website',
-                                    //           textAlign: TextAlign.center,
-                                    //           style: Theme.of(context)
-                                    //               .textTheme
-                                    //               .bodySmall,
-                                    //         ),
-                                    //       )
                                   ],
                                 )
                               : const SizedBox(),

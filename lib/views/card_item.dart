@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/app_theme/style_manager.dart';
 import 'package:portfolio/data/education_history.dart';
 
-class ContentCard extends StatefulWidget {
+class ContentCard extends StatelessWidget {
   final double width;
   final int index;
   const ContentCard({
@@ -11,11 +11,6 @@ class ContentCard extends StatefulWidget {
     super.key,
   });
 
-  @override
-  State<ContentCard> createState() => _ContentCardState();
-}
-
-class _ContentCardState extends State<ContentCard> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -27,11 +22,11 @@ class _ContentCardState extends State<ContentCard> {
             color: Theme.of(context).hintColor.withOpacity(0.6),
           ),
         ),
-        height: widget.width <= 700 ? 150 : 200,
+        height: width <= 700 ? 150 : 200,
         margin: viewsMargin,
-        width: widget.width <= 700
-            ? widget.width * 0.8
-            : widget.width <= 900
+        width: width <= 700
+            ? width * 0.8
+            : width <= 900
                 ? MediaQuery.of(context).size.width * 0.3
                 : MediaQuery.of(context).size.width * 0.2,
         child: Column(
@@ -52,7 +47,7 @@ class _ContentCardState extends State<ContentCard> {
                         child: CircleAvatar(
                           backgroundColor: Theme.of(context).primaryColor,
                           foregroundImage:
-                              AssetImage(educationHistory[widget.index]['asset']),
+                              AssetImage(educationHistory[index]['asset']),
                         ),
                       ),
                       Container(
@@ -60,13 +55,13 @@ class _ContentCardState extends State<ContentCard> {
                           vertical: 2,
                           horizontal: 5,
                         ),
-                        width: widget.width <= 700
-                            ? widget.width * 0.5
-                            : widget.width <= 900
+                        width: width <= 700
+                            ? width * 0.5
+                            : width <= 900
                                 ? MediaQuery.of(context).size.width * 0.15
                                 : MediaQuery.of(context).size.width * 0.1,
                         child: Text(
-                          educationHistory[widget.index]['institution'],
+                          educationHistory[index]['institution'],
                           overflow: TextOverflow.ellipsis,
                           textAlign: TextAlign.start,
                           maxLines: 3,
@@ -79,9 +74,9 @@ class _ContentCardState extends State<ContentCard> {
                     padding: const EdgeInsets.only(top: 2.0),
                     child: Container(
                       height: 2,
-                      width: widget.width <= 700
-                          ? widget.width * 0.8
-                          : widget.width <= 900
+                      width: width <= 700
+                          ? width * 0.8
+                          : width <= 900
                               ? MediaQuery.of(context).size.width * 0.25
                               : MediaQuery.of(context).size.width * 0.16,
                       color: Theme.of(context).hintColor.withOpacity(0.6),
@@ -95,13 +90,13 @@ class _ContentCardState extends State<ContentCard> {
               child: Container(
                 margin: const EdgeInsets.only(top: 20),
                 // height: 110,
-                width: widget.width <= 700
-                    ? widget.width * 0.8
-                    : widget.width <= 900
+                width: width <= 700
+                    ? width * 0.8
+                    : width <= 900
                         ? MediaQuery.of(context).size.width * 0.27
                         : MediaQuery.of(context).size.width * 0.18,
                 child: Text(
-                  educationHistory[widget.index]['about'],
+                  educationHistory[index]['about'],
                   overflow: TextOverflow.ellipsis,
                   textAlign: TextAlign.start,
                   maxLines: 6,

@@ -4,15 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class PortFolioFooter extends StatefulWidget {
+class PortFolioFooter extends StatelessWidget {
   final double width;
   const PortFolioFooter({required this.width, super.key});
 
-  @override
-  State<PortFolioFooter> createState() => _PortFolioFooterState();
-}
-
-class _PortFolioFooterState extends State<PortFolioFooter> {
   Future<void> _launchUrl(url) async {
     Uri url0 = Uri.parse(url);
     if (!await launchUrl(url0)) {
@@ -23,7 +18,7 @@ class _PortFolioFooterState extends State<PortFolioFooter> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: widget.width <= 800 ? 235 : 200,
+      height: width <= 800 ? 235 : 200,
       decoration: BoxDecoration(
         color: Theme.of(context).primaryColor,
         borderRadius: const BorderRadius.vertical(
@@ -31,8 +26,8 @@ class _PortFolioFooterState extends State<PortFolioFooter> {
         ),
       ),
       child: SizedBox(
-        width: widget.width,
-        child: widget.width > 700
+        width: width,
+        child: width > 700
             ? // Layout for footer if width of web is greater than 700
             Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -54,7 +49,7 @@ class _PortFolioFooterState extends State<PortFolioFooter> {
                                 style:
                                     Theme.of(context).textTheme.headlineSmall,
                               ),
-                              widget.width > 300
+                              width > 300
                                   ? TextButton(
                                       onPressed: () async {
                                         String email = Uri.encodeComponent(
@@ -82,7 +77,7 @@ class _PortFolioFooterState extends State<PortFolioFooter> {
                                   : const SizedBox(),
                             ],
                           ),
-                          widget.width <= 300
+                          width <= 300
                               ? TextButton(
                                   onPressed: () async {
                                     String email = Uri.encodeComponent(
@@ -118,7 +113,7 @@ class _PortFolioFooterState extends State<PortFolioFooter> {
                         ],
                       ),
                       SizedBox(
-                        width: widget.width <= 800 ? 30 : 60,
+                        width: width <= 800 ? 30 : 60,
                       ),
                       // Column for social media and other profile info
                       Column(
@@ -205,8 +200,7 @@ class _PortFolioFooterState extends State<PortFolioFooter> {
                               ),
                               TextButton(
                                 onPressed: () {
-                                  _launchUrl(
-                                      'https://pin.it/2YbP3WU');
+                                  _launchUrl('https://pin.it/2YbP3WU');
                                 },
                                 child: Row(
                                   children: [
@@ -262,7 +256,7 @@ class _PortFolioFooterState extends State<PortFolioFooter> {
                         'Reach Me through ',
                         style: Theme.of(context).textTheme.headlineSmall,
                       ),
-                      widget.width > 300
+                      width > 300
                           ? TextButton(
                               onPressed: () async {
                                 String email =
@@ -278,7 +272,7 @@ class _PortFolioFooterState extends State<PortFolioFooter> {
                                 }
                               },
                               child: SizedBox(
-                                width: widget.width <= 400 ? 120 : 180,
+                                width: width <= 400 ? 120 : 180,
                                 child: Text(
                                   'bumhonisu@gmail.com',
                                   maxLines: 2,
@@ -289,7 +283,7 @@ class _PortFolioFooterState extends State<PortFolioFooter> {
                           : const SizedBox(),
                     ],
                   ),
-                  widget.width <= 300
+                  width <= 300
                       ? TextButton(
                           onPressed: () async {
                             String email =
@@ -346,10 +340,6 @@ class _PortFolioFooterState extends State<PortFolioFooter> {
                               height: 24,
                               width: 24,
                             ),
-                            // Text(
-                            //   'LinkedIn',
-                            //   style: Theme.of(context).textTheme.bodySmall,
-                            // )
                           ],
                         ),
                       ),
@@ -366,10 +356,6 @@ class _PortFolioFooterState extends State<PortFolioFooter> {
                               height: 24,
                               width: 24,
                             ),
-                            // Text(
-                            //   'GitHub',
-                            //   style: Theme.of(context).textTheme.bodySmall,
-                            // )
                           ],
                         ),
                       ),
@@ -386,34 +372,24 @@ class _PortFolioFooterState extends State<PortFolioFooter> {
                               height: 24,
                               width: 24,
                             ),
-                            // Text(
-                            //   'Twitter',
-                            //   style: Theme.of(context).textTheme.bodySmall,
-                            // )
                           ],
                         ),
                       ),
                       //pinterest account link
                       TextButton(
-                                onPressed: () {
-                                  _launchUrl(
-                                      'https://pin.it/2YbP3WU');
-                                },
-                                child: Row(
-                                  children: [
-                                    SvgPicture.asset(
-                                      'assets/pinterest.svg',
-                                      height: 24,
-                                      width: 24,
-                                    ),
-                                    // Text(
-                                    //   'Pinterest',
-                                    //   style:
-                                    //       Theme.of(context).textTheme.bodySmall,
-                                    // )
-                                  ],
-                                ),
-                              ),
+                        onPressed: () {
+                          _launchUrl('https://pin.it/2YbP3WU');
+                        },
+                        child: Row(
+                          children: [
+                            SvgPicture.asset(
+                              'assets/pinterest.svg',
+                              height: 24,
+                              width: 24,
+                            ),
+                          ],
+                        ),
+                      ),
                     ],
                   ),
                   Row(
@@ -429,7 +405,9 @@ class _PortFolioFooterState extends State<PortFolioFooter> {
                       )
                     ],
                   ),
-                  const SizedBox(height: 20,)
+                  const SizedBox(
+                    height: 20,
+                  )
                 ],
               ),
       ),

@@ -60,17 +60,33 @@ class _MyHomePageState extends State<MyHomePage> {
         centerTitle: true,
         title: Row(
           children: [
-            IconButton(
-              onPressed: () {
+            InkWell(
+              onTap: () {
                 setState(() {
                   _goToSection(0);
                 });
               },
-              icon: Icon(
-                Icons.home_filled,
-                size: width <= 700 ? 24 : 30,
+              customBorder: const CircleBorder(),
+              child: Ink(
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle, // Use a circular shape for the splash
+                  gradient: RadialGradient(
+                    colors: [
+                      Theme.of(context).hintColor,
+                      Colors.transparent,
+                    ], // Define your gradient colors
+                    radius:
+                        60, // Adjust the radius to control the spread of the radial effect
+                  ),
+                ),
+                child: CircleAvatar(
+                  radius: width <= 700 ? 24 : 26,
+                  backgroundColor: Theme.of(context).primaryColor,
+                  foregroundImage: const AssetImage(
+                    'assets/profile.png',
+                  ),
+                ),
               ),
-              tooltip: 'Go to top, Personal section',
             ),
             const Spacer(),
             IconButton(
