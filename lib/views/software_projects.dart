@@ -176,7 +176,7 @@ class _ListOfSoftwareProjectsState extends State<ListOfSoftwareProjects> {
                                       icon: Icon(
                                         projectData[index]['web'] == false
                                             ? Icons.read_more_rounded
-                                            : Icons.launch_outlined,
+                                            : Icons.launch,
                                         color: Theme.of(context)
                                             .floatingActionButtonTheme
                                             .splashColor,
