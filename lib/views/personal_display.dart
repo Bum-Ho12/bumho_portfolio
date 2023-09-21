@@ -14,9 +14,9 @@ class PersonalInfo extends StatefulWidget {
 class _PersonalInfoState extends State<PersonalInfo> {
   List myStacks = [
     'Software development: mobile, web and desktop applications',
-    // 'machine learning and data science',
     'Backend Development',
-    'Programming',
+    'machine learning and data science',
+    // 'Programming',
     // 'Computer networking and cloud administration',
     // 'Database design and administration',
     'Animation and Graphics'
