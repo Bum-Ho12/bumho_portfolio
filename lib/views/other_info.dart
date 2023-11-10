@@ -38,21 +38,26 @@ class PublishedBlogs extends StatelessWidget {
                 return Container(
                   height: 190,
                   width: width <= 400
-                      ? width * 0.4
+                      ? width * 0.85
                       : width <= 600
                           ? width * 0.3
-                          : width * 0.15,
+                          : width * 0.4,
                   margin: const EdgeInsets.symmetric(horizontal: 5),
                   decoration: BoxDecoration(
                       color: Theme.of(context).hintColor.withOpacity(0.5),
                       borderRadius: BorderRadius.circular(10)),
                   child: SizedBox(
-                    height: 100,
-                    width: MediaQuery.of(context).size.width * 0.65,
+                    height: 110,
+                    width: width <= 400
+                        ? MediaQuery.sizeOf(context).width * 0.8
+                        : width <= 600
+                            ? MediaQuery.sizeOf(context).width * 0.7
+                            : MediaQuery.sizeOf(context).width * 0.65,
                     child: LinkPreviewGenerator(
                       link: blogData[index],
                       linkPreviewStyle: LinkPreviewStyle.small,
-                      backgroundColor: Theme.of(context).hintColor,
+                      backgroundColor:
+                          Theme.of(context).hintColor.withOpacity(0.4),
                       onTap: () {
                         _launchUrl(blogData[index]);
                       },

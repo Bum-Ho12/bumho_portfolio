@@ -32,6 +32,9 @@ dependencies:
   url_launcher: ^6.1.11
   link_preview_generator: ^1.2.0
   flutter_svg: ^2.0.6
+  flutter_animate: ^4.2.0+1
+  animated_text_kit: ^4.2.1
+
   flutter:
     sdk: flutter
 

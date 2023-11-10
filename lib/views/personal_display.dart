@@ -1,4 +1,5 @@
 // import 'package:flutter_svg/svg.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:portfolio/app_theme/style_manager.dart';
 import 'package:flutter/material.dart';
 // import 'package:portfolio/data/stack_data.dart';
@@ -42,7 +43,8 @@ class _PersonalInfoState extends State<PersonalInfo> {
                           ? MediaQuery.of(context).size.width * 0.3
                           : MediaQuery.of(context).size.width * 0.2,
                       child: CircleAvatar(
-                        backgroundColor: Theme.of(context).primaryColor,
+                        backgroundColor:
+                            Theme.of(context).primaryColor.withOpacity(0.12),
                         foregroundImage: const AssetImage(
                           'assets/profile.png',
                         ),
@@ -53,7 +55,10 @@ class _PersonalInfoState extends State<PersonalInfo> {
                       'Bumho Nisubire',
                       textAlign: TextAlign.center,
                       style: Theme.of(context).textTheme.headlineMedium,
-                    ),
+                    ).animate().fade(
+                          delay: const Duration(milliseconds: 2000),
+                          duration: const Duration(milliseconds: 2000),
+                        ),
                     //Title
                     Text(
                       'Software Engineer',
@@ -81,7 +86,8 @@ class _PersonalInfoState extends State<PersonalInfo> {
                           ? MediaQuery.of(context).size.width * 0.3
                           : MediaQuery.of(context).size.width * 0.2,
                       child: CircleAvatar(
-                        backgroundColor: Theme.of(context).primaryColor,
+                        backgroundColor:
+                            Theme.of(context).primaryColor.withOpacity(0.12),
                         foregroundImage: const AssetImage(
                           'assets/profile.png',
                         ),

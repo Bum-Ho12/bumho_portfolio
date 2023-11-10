@@ -47,6 +47,7 @@ class _ListOfSoftwareProjectsState extends State<ListOfSoftwareProjects> {
     return ListView.builder(
         scrollDirection: Axis.horizontal,
         shrinkWrap: true,
+        padding: viewsPadding,
         itemCount: projectData.length,
         controller: widget.projectController,
         itemBuilder: (context, index) {
@@ -62,6 +63,7 @@ class _ListOfSoftwareProjectsState extends State<ListOfSoftwareProjects> {
                         : MediaQuery.of(context).size.width * 0.2,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
+              color: Theme.of(context).scaffoldBackgroundColor,
             ),
             child: Column(
               children: [
@@ -76,9 +78,9 @@ class _ListOfSoftwareProjectsState extends State<ListOfSoftwareProjects> {
                               : widget.width <= 900
                                   ? MediaQuery.of(context).size.width * 0.15
                                   : MediaQuery.of(context).size.width * 0.1,
-                      decoration: BoxDecoration(
-                        color: Theme.of(context).hintColor.withOpacity(0.2),
-                        borderRadius: const BorderRadius.vertical(
+                      decoration: const BoxDecoration(
+                        // color: Theme.of(context).hintColor.withOpacity(0.2),
+                        borderRadius: BorderRadius.vertical(
                           top: Radius.circular(5),
                         ),
                       ),

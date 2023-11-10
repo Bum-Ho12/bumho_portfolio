@@ -1,8 +1,10 @@
+import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:portfolio/app_theme/style_manager.dart';
+import 'package:portfolio/utils/downloader.dart';
+import 'package:portfolio/utils/empty_downloader.dart';
 import 'package:portfolio/views/about_personal.dart';
 import 'package:portfolio/views/footer.dart';
-// import 'package:portfolio/views/other_info.dart';
 import 'package:portfolio/views/personal_display.dart';
 // import 'package:portfolio/views/projects.dart';
 import 'package:flutter/material.dart';
@@ -52,6 +54,21 @@ class _MyHomePageState extends State<MyHomePage> {
         duration: const Duration(milliseconds: 300), curve: Curves.easeIn);
   }
 
+  // application downloader
+  void fileDownloader(targetFile) async {
+    final byteData = await rootBundle.load('$targetFile');
+    Uint8List byteDataUint8List = byteData.buffer
+        .asUint8List(byteData.offsetInBytes, byteData.lengthInBytes);
+    List<int> byteDataListInt = byteDataUint8List.cast<int>();
+    targetFile.toString().isNotEmpty
+        ? download(
+            byteDataListInt,
+            url: targetFile,
+            downloadName: targetFile.toString(),
+          )
+        : emptyDownload();
+  }
+
   @override
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
@@ -60,35 +77,35 @@ class _MyHomePageState extends State<MyHomePage> {
         centerTitle: true,
         title: Row(
           children: [
-            InkWell(
-              onTap: () {
-                setState(() {
-                  _goToSection(0);
-                });
-              },
-              customBorder: const CircleBorder(),
-              child: Ink(
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle, // Use a circular shape for the splash
-                  gradient: RadialGradient(
-                    colors: [
-                      Theme.of(context).hintColor,
-                      Colors.transparent,
-                    ], // Define your gradient colors
-                    radius:
-                        60, // Adjust the radius to control the spread of the radial effect
-                  ),
-                ),
-                child: CircleAvatar(
-                  radius: width <= 700 ? 24 : 26,
-                  backgroundColor: Theme.of(context).primaryColor,
-                  foregroundImage: const AssetImage(
-                    'assets/profile.png',
-                  ),
-                ),
-              ),
-            ),
-            const Spacer(),
+            // InkWell(
+            //   onTap: () {
+            //     setState(() {
+            //       _goToSection(0);
+            //     });
+            //   },
+            //   customBorder: const CircleBorder(),
+            //   child: Ink(
+            //     decoration: BoxDecoration(
+            //       shape: BoxShape.circle, // Use a circular shape for the splash
+            //       gradient: RadialGradient(
+            //         colors: [
+            //           Theme.of(context).hintColor,
+            //           Colors.transparent,
+            //         ], // Define your gradient colors
+            //         radius:
+            //             60, // Adjust the radius to control the spread of the radial effect
+            //       ),
+            //     ),
+            //     child: CircleAvatar(
+            //       radius: width <= 700 ? 24 : 26,
+            //       backgroundColor: Theme.of(context).primaryColor,
+            //       foregroundImage: const AssetImage(
+            //         'assets/profile.png',
+            //       ),
+            //     ),
+            //   ),
+            // ),
+            // const Spacer(),
             IconButton(
               onPressed: () {
                 setState(() {
@@ -147,6 +164,24 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               tooltip: 'Contact Details',
             ),
+            const Spacer(),
+            TextButton(
+                autofocus: true,
+                onPressed: () {
+                  fileDownloader('Bumho-nisubire.pdf');
+                },
+                child: Row(
+                  children: [
+                    Text(
+                      'Resume',
+                      style: Theme.of(context).textTheme.headlineMedium,
+                    ),
+                    const Icon(
+                      Icons.file_download_outlined,
+                      size: 30,
+                    ),
+                  ],
+                ))
           ],
         ),
       ),
@@ -429,7 +464,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 vertical: 2,
               ),
               decoration: BoxDecoration(
-                color: Theme.of(context).hintColor.withOpacity(0.1),
+                color: Theme.of(context).scaffoldBackgroundColor,
                 borderRadius: const BorderRadius.vertical(
                   top: Radius.circular(10),
                 ),
@@ -452,6 +487,10 @@ class _MyHomePageState extends State<MyHomePage> {
               padding: viewsPadding,
               child: AboutMe(width: width),
             ),
+            // Padding(
+            //   padding: viewsPadding,
+            //   child: PublishedBlogs(width: width),
+            // ),
             // bottom part of website with the contact and social media
             // information
             columnSizeSpace,
