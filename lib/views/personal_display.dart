@@ -37,41 +37,46 @@ class _PersonalInfoState extends State<PersonalInfo> {
           // Profile Photo on desktop width
           // comes on the side of the details
           widget.width > 600
-              ? Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Container(
-                      padding: viewsPadding,
-                      height: 200,
-                      width: MediaQuery.of(context).size.width <= 700
-                          ? MediaQuery.of(context).size.width * 0.3
-                          : MediaQuery.of(context).size.width * 0.2,
-                      child: Image.asset(
-                        'assets/profile.png',
+              ? Container(
+                  decoration: BoxDecoration(
+                    color: Theme.of(context).scaffoldBackgroundColor,
+                    borderRadius: BorderRadius.circular(20),
+                    boxShadow: [
+                      BoxShadow(
+                          blurRadius: 20,
+                          color: Theme.of(context).hintColor.withOpacity(0.3)),
+                    ],
+                  ),
+                  padding: const EdgeInsets.all(10),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                        padding: viewsPadding,
+                        height: 200,
+                        width: MediaQuery.of(context).size.width <= 700
+                            ? MediaQuery.of(context).size.width * 0.3
+                            : MediaQuery.of(context).size.width * 0.2,
+                        child: Image.asset(
+                          'assets/profile.png',
+                        ),
                       ),
-                      // CircleAvatar(
-                      //   backgroundColor:
-                      //       Theme.of(context).primaryColor.withOpacity(0.12),
-                      //   foregroundImage: const AssetImage(
-                      //     'assets/profile.png',
-                      //   ),
-                      // ),
-                    ),
-                    // Full name
-                    Text(
-                      'Bumho Nisubire',
-                      textAlign: TextAlign.center,
-                      style: Theme.of(context).textTheme.headlineMedium,
-                    ),
-                    //Title
-                    Text(
-                      'Software Engineer',
-                      maxLines: 3,
-                      textAlign: TextAlign.center,
-                      overflow: TextOverflow.ellipsis,
-                      style: Theme.of(context).textTheme.headlineSmall,
-                    ),
-                  ],
+                      // Full name
+                      Text(
+                        'Bumho Nisubire',
+                        textAlign: TextAlign.center,
+                        style: Theme.of(context).textTheme.headlineMedium,
+                      ),
+                      //Title
+                      Text(
+                        'Software Engineer',
+                        maxLines: 3,
+                        textAlign: TextAlign.center,
+                        overflow: TextOverflow.ellipsis,
+                        style: Theme.of(context).textTheme.headlineSmall,
+                      ),
+                    ],
+                  ),
                 )
               : const SizedBox(),
           SizedBox(
@@ -82,51 +87,62 @@ class _PersonalInfoState extends State<PersonalInfo> {
             children: [
               //when there is little space
               // the profile comes up here
-              widget.width <= 600
-                  ? Container(
-                      padding: viewsPadding,
-                      height: 200,
-                      width: MediaQuery.of(context).size.width <= 700
-                          ? MediaQuery.of(context).size.width * 0.3
-                          : MediaQuery.of(context).size.width * 0.2,
-                      child: Image.asset(
-                        'assets/profile.png',
-                      ),
-                      // CircleAvatar(
-                      //   backgroundColor:
-                      //       Theme.of(context).primaryColor.withOpacity(0.12),
-                      //   foregroundImage: const AssetImage(
-                      //     'assets/profile.png',
-                      //   ),
-                      // ),
-                    )
-                  : const SizedBox(),
-              //Full Name
-              widget.width <= 600
-                  ? Column(
-                      children: [
-                        Text(
-                          'Bumho Nisubire',
-                          textAlign: TextAlign.center,
-                          style: Theme.of(context).textTheme.headlineMedium,
-                        ),
-                        //Title
-                        Text(
-                          'Software Engineer',
-                          maxLines: 3,
-                          textAlign: TextAlign.center,
-                          overflow: TextOverflow.ellipsis,
-                          style: Theme.of(context).textTheme.headlineSmall,
-                        ),
-                      ],
-                    )
-                  : const SizedBox(),
+              Container(
+                decoration: BoxDecoration(
+                  color: Theme.of(context).scaffoldBackgroundColor,
+                  borderRadius: BorderRadius.circular(20),
+                  boxShadow: [
+                    BoxShadow(
+                        blurRadius: 20,
+                        color: Theme.of(context).hintColor.withOpacity(0.3)),
+                  ],
+                ),
+                padding: const EdgeInsets.all(10),
+                child: Column(
+                  children: [
+                    widget.width <= 600
+                        ? Container(
+                            padding: viewsPadding,
+                            height: 200,
+                            width: MediaQuery.of(context).size.width <= 700
+                                ? MediaQuery.of(context).size.width * 0.3
+                                : MediaQuery.of(context).size.width * 0.2,
+                            child: Image.asset(
+                              'assets/profile.png',
+                            ),
+                          )
+                        : const SizedBox(),
+                    //Full Name
+                    widget.width <= 600
+                        ? Column(
+                            children: [
+                              Text(
+                                'Bumho Nisubire',
+                                textAlign: TextAlign.center,
+                                style:
+                                    Theme.of(context).textTheme.headlineLarge,
+                              ),
+                              //Title
+                              Text(
+                                'Software Engineer',
+                                maxLines: 3,
+                                textAlign: TextAlign.center,
+                                overflow: TextOverflow.ellipsis,
+                                style:
+                                    Theme.of(context).textTheme.headlineMedium,
+                              ),
+                            ],
+                          )
+                        : const SizedBox(),
+                  ],
+                ),
+              ),
               //stacks and proficiency column list
               widget.width > 600
                   ? Text(
                       'Stacks and Proficiencies: ',
                       textAlign: TextAlign.center,
-                      style: Theme.of(context).textTheme.headlineMedium,
+                      style: Theme.of(context).textTheme.headlineLarge,
                     )
                   : const SizedBox(),
               // List of stacks and expertise
@@ -141,10 +157,15 @@ class _PersonalInfoState extends State<PersonalInfo> {
                 //wrapper for stacks
                 child: Container(
                   decoration: BoxDecoration(
-                    color: Theme.of(context).hintColor.withOpacity(0.6),
-                    borderRadius: BorderRadius.circular(5),
+                    color: Theme.of(context).scaffoldBackgroundColor,
+                    borderRadius: BorderRadius.circular(20),
+                    boxShadow: [
+                      BoxShadow(
+                          blurRadius: 20,
+                          color: Theme.of(context).hintColor.withOpacity(0.3)),
+                    ],
                   ),
-                  padding: const EdgeInsets.all(5),
+                  padding: const EdgeInsets.all(10),
                   child: AnimatedTextKit(
                     animatedTexts: [
                       ...myStacks.map((item) {

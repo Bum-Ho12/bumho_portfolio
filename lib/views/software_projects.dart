@@ -64,6 +64,12 @@ class _ListOfSoftwareProjectsState extends State<ListOfSoftwareProjects> {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
               color: Theme.of(context).scaffoldBackgroundColor,
+              boxShadow: [
+                BoxShadow(
+                  blurRadius: 10,
+                  color: Theme.of(context).primaryColor.withOpacity(0.7),
+                ),
+              ],
             ),
             child: Column(
               children: [
@@ -135,6 +141,20 @@ class _ListOfSoftwareProjectsState extends State<ListOfSoftwareProjects> {
                     Container(
                       decoration: BoxDecoration(
                         color: Theme.of(context).hintColor.withOpacity(0.5),
+                        borderRadius: BorderRadius.circular(10),
+                        boxShadow: [
+                          BoxShadow(
+                            blurRadius: 20,
+                            color: Theme.of(context)
+                                .scaffoldBackgroundColor
+                                .withOpacity(0.7),
+                          ),
+                          BoxShadow(
+                            blurRadius: 20,
+                            color:
+                                Theme.of(context).primaryColor.withOpacity(0.7),
+                          ),
+                        ],
                       ),
                       child: Row(
                         mainAxisAlignment: viewsEndAlignment,

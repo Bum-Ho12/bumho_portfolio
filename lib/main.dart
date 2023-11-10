@@ -76,8 +76,9 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         centerTitle: true,
         title: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            IconButton(
+            TextButton(
               onPressed: () {
                 setState(() {
                   _goToSection(
@@ -89,13 +90,17 @@ class _MyHomePageState extends State<MyHomePage> {
                   );
                 });
               },
-              icon: Icon(
-                Icons.apps,
-                size: width <= 700 ? 24 : 30,
+              child: Text(
+                'Projects',
+                style: Theme.of(context).textTheme.displayLarge,
               ),
-              tooltip: 'Projects and apps worked upon',
+              // icon: Icon(
+              //   Icons.apps,
+              //   size: width <= 700 ? 24 : 30,
+              // ),
+              // tooltip: 'Projects and apps worked upon',
             ),
-            IconButton(
+            TextButton(
               onPressed: () {
                 setState(() {
                   _goToSection(
@@ -109,13 +114,17 @@ class _MyHomePageState extends State<MyHomePage> {
                   );
                 });
               },
-              icon: Icon(
-                Icons.cast_for_education_outlined,
-                size: width <= 700 ? 24 : 30,
+              child: Text(
+                'My Career',
+                style: Theme.of(context).textTheme.displayLarge,
               ),
-              tooltip: 'Career section',
+              // icon: Icon(
+              //   Icons.cast_for_education_outlined,
+              //   size: width <= 700 ? 24 : 30,
+              // ),
+              // tooltip: 'Career section',
             ),
-            IconButton(
+            TextButton(
               onPressed: () {
                 setState(() {
                   _goToSection(
@@ -129,11 +138,10 @@ class _MyHomePageState extends State<MyHomePage> {
                   );
                 });
               },
-              icon: Icon(
-                Icons.contact_page_outlined,
-                size: width <= 700 ? 24 : 30,
+              child: Text(
+                'Contact Me',
+                style: Theme.of(context).textTheme.displayLarge,
               ),
-              tooltip: 'Contact Details',
             ),
             const Spacer(),
             TextButton(
@@ -194,10 +202,16 @@ class _MyHomePageState extends State<MyHomePage> {
                                           padding: const EdgeInsets.all(5),
                                           decoration: BoxDecoration(
                                             color: Theme.of(context)
-                                                .hintColor
-                                                .withOpacity(0.6),
+                                                .scaffoldBackgroundColor,
                                             borderRadius:
                                                 BorderRadius.circular(5),
+                                            boxShadow: [
+                                              BoxShadow(
+                                                  blurRadius: 20,
+                                                  color: Theme.of(context)
+                                                      .hintColor
+                                                      .withOpacity(0.3)),
+                                            ],
                                           ),
                                           child: SvgPicture.asset(
                                             item['asset'],
@@ -231,10 +245,16 @@ class _MyHomePageState extends State<MyHomePage> {
                                           padding: const EdgeInsets.all(5),
                                           decoration: BoxDecoration(
                                             color: Theme.of(context)
-                                                .hintColor
-                                                .withOpacity(0.6),
+                                                .scaffoldBackgroundColor,
                                             borderRadius:
                                                 BorderRadius.circular(5),
+                                            boxShadow: [
+                                              BoxShadow(
+                                                  blurRadius: 20,
+                                                  color: Theme.of(context)
+                                                      .hintColor
+                                                      .withOpacity(0.3)),
+                                            ],
                                           ),
                                           child: SvgPicture.asset(
                                             item['asset'],
@@ -283,10 +303,16 @@ class _MyHomePageState extends State<MyHomePage> {
                                           padding: const EdgeInsets.all(5),
                                           decoration: BoxDecoration(
                                             color: Theme.of(context)
-                                                .hintColor
-                                                .withOpacity(0.2),
+                                                .scaffoldBackgroundColor,
                                             borderRadius:
                                                 BorderRadius.circular(5),
+                                            boxShadow: [
+                                              BoxShadow(
+                                                  blurRadius: 20,
+                                                  color: Theme.of(context)
+                                                      .hintColor
+                                                      .withOpacity(0.3)),
+                                            ],
                                           ),
                                           child: SvgPicture.asset(
                                             item['asset'],
@@ -319,10 +345,16 @@ class _MyHomePageState extends State<MyHomePage> {
                                           padding: const EdgeInsets.all(5),
                                           decoration: BoxDecoration(
                                             color: Theme.of(context)
-                                                .hintColor
-                                                .withOpacity(0.2),
+                                                .scaffoldBackgroundColor,
                                             borderRadius:
                                                 BorderRadius.circular(5),
+                                            boxShadow: [
+                                              BoxShadow(
+                                                  blurRadius: 20,
+                                                  color: Theme.of(context)
+                                                      .hintColor
+                                                      .withOpacity(0.3)),
+                                            ],
                                           ),
                                           child: SvgPicture.asset(
                                             item['asset'],
@@ -356,7 +388,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 children: [
                   Text(
                     'Projects and Works',
-                    style: Theme.of(context).textTheme.headlineMedium,
+                    style: Theme.of(context).textTheme.displayLarge,
                   ),
                   const Spacer(),
                   PopupMenuButton(
