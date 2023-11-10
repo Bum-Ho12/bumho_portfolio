@@ -77,35 +77,6 @@ class _MyHomePageState extends State<MyHomePage> {
         centerTitle: true,
         title: Row(
           children: [
-            // InkWell(
-            //   onTap: () {
-            //     setState(() {
-            //       _goToSection(0);
-            //     });
-            //   },
-            //   customBorder: const CircleBorder(),
-            //   child: Ink(
-            //     decoration: BoxDecoration(
-            //       shape: BoxShape.circle, // Use a circular shape for the splash
-            //       gradient: RadialGradient(
-            //         colors: [
-            //           Theme.of(context).hintColor,
-            //           Colors.transparent,
-            //         ], // Define your gradient colors
-            //         radius:
-            //             60, // Adjust the radius to control the spread of the radial effect
-            //       ),
-            //     ),
-            //     child: CircleAvatar(
-            //       radius: width <= 700 ? 24 : 26,
-            //       backgroundColor: Theme.of(context).primaryColor,
-            //       foregroundImage: const AssetImage(
-            //         'assets/profile.png',
-            //       ),
-            //     ),
-            //   ),
-            // ),
-            // const Spacer(),
             IconButton(
               onPressed: () {
                 setState(() {
@@ -201,7 +172,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
               child: width > 1000
-                  ? Row(
+                  ? Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         PersonalInfo(
@@ -210,11 +181,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         //displays icons
                         Container(
                           padding: viewsPadding,
-                          // decoration: BoxDecoration(
-                          //   color: Theme.of(context).scaffoldBackgroundColor,
-                          //   borderRadius: BorderRadius.circular(10),
-                          // ),
-                          width: 250,
+                          width: width,
                           child: Column(children: [
                             //displays icons for languages and frameworks
                             Wrap(
@@ -302,14 +269,9 @@ class _MyHomePageState extends State<MyHomePage> {
                         PersonalInfo(
                           width: width,
                         ),
-                        // ProjectSlideShow(width: width)
                         Container(
                           padding: viewsPadding,
-                          // decoration: BoxDecoration(
-                          //   color: Theme.of(context).scaffoldBackgroundColor,
-                          //   borderRadius: BorderRadius.circular(10),
-                          // ),
-                          width: 250,
+                          width: width,
                           child: Column(children: [
                             Wrap(
                               spacing: 14.0,

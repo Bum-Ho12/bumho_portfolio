@@ -1,7 +1,8 @@
 {
     "cmake.sourceDirectory": "E:/Projects/portfolio/windows/flutter",
     "cSpell.words": [
-        "scikitlearn"
+        "scikitlearn",
+        "Typer"
     ],
     "FSharp.suggestGitignore": false
 }

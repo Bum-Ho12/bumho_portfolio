@@ -1,5 +1,6 @@
 // import 'package:flutter_svg/svg.dart';
-import 'package:flutter_animate/flutter_animate.dart';
+import 'package:animated_text_kit/animated_text_kit.dart';
+// import 'package:flutter_animate/flutter_animate.dart';
 import 'package:portfolio/app_theme/style_manager.dart';
 import 'package:flutter/material.dart';
 // import 'package:portfolio/data/stack_data.dart';
@@ -14,13 +15,16 @@ class PersonalInfo extends StatefulWidget {
 
 class _PersonalInfoState extends State<PersonalInfo> {
   List myStacks = [
-    'Software development: mobile, web and desktop applications',
-    'Backend Development',
-    'machine learning and data science',
+    '>> Software development: mobile, web and desktop applications\n'
+        '>> Backend Development: web and REST APIs\n'
+        '>> machine learning and data science\n'
+        '>> Animation and Graphics: 2D animations,\n    character design, infographic and other designs.',
+    // 'Backend Development: web and REST APIs',
+    // 'machine learning and data science',
     // 'Programming',
     // 'Computer networking and cloud administration',
     // 'Database design and administration',
-    'Animation and Graphics'
+    // 'Animation and Graphics: 2D animations, character design, infographic and other designs.'
   ];
   @override
   Widget build(BuildContext context) {
@@ -42,23 +46,23 @@ class _PersonalInfoState extends State<PersonalInfo> {
                       width: MediaQuery.of(context).size.width <= 700
                           ? MediaQuery.of(context).size.width * 0.3
                           : MediaQuery.of(context).size.width * 0.2,
-                      child: CircleAvatar(
-                        backgroundColor:
-                            Theme.of(context).primaryColor.withOpacity(0.12),
-                        foregroundImage: const AssetImage(
-                          'assets/profile.png',
-                        ),
+                      child: Image.asset(
+                        'assets/profile.png',
                       ),
+                      // CircleAvatar(
+                      //   backgroundColor:
+                      //       Theme.of(context).primaryColor.withOpacity(0.12),
+                      //   foregroundImage: const AssetImage(
+                      //     'assets/profile.png',
+                      //   ),
+                      // ),
                     ),
                     // Full name
                     Text(
                       'Bumho Nisubire',
                       textAlign: TextAlign.center,
                       style: Theme.of(context).textTheme.headlineMedium,
-                    ).animate().fade(
-                          delay: const Duration(milliseconds: 2000),
-                          duration: const Duration(milliseconds: 2000),
-                        ),
+                    ),
                     //Title
                     Text(
                       'Software Engineer',
@@ -85,13 +89,16 @@ class _PersonalInfoState extends State<PersonalInfo> {
                       width: MediaQuery.of(context).size.width <= 700
                           ? MediaQuery.of(context).size.width * 0.3
                           : MediaQuery.of(context).size.width * 0.2,
-                      child: CircleAvatar(
-                        backgroundColor:
-                            Theme.of(context).primaryColor.withOpacity(0.12),
-                        foregroundImage: const AssetImage(
-                          'assets/profile.png',
-                        ),
+                      child: Image.asset(
+                        'assets/profile.png',
                       ),
+                      // CircleAvatar(
+                      //   backgroundColor:
+                      //       Theme.of(context).primaryColor.withOpacity(0.12),
+                      //   foregroundImage: const AssetImage(
+                      //     'assets/profile.png',
+                      //   ),
+                      // ),
                     )
                   : const SizedBox(),
               //Full Name
@@ -125,59 +132,34 @@ class _PersonalInfoState extends State<PersonalInfo> {
               // List of stacks and expertise
               Container(
                 margin: const EdgeInsets.only(top: 10),
-                width: 250,
+                width: widget.width < 400
+                    ? widget.width * 0.7
+                    : widget.width < 300
+                        ? widget.width * 0.6
+                        : widget.width * 0.5,
                 padding: viewsPadding,
-                // decoration: BoxDecoration(
-                //   color: Theme.of(context).scaffoldBackgroundColor,
-                //   borderRadius: BorderRadius.circular(10),
-                // ),
-                child: Wrap(
-                  runSpacing: 14.0,
-                  spacing: 14.0,
-                  children: [
-                    //list of myStacks
-                    ...myStacks.map((item) {
-                      return Container(
-                        // width: widget.width <= 600 ? 150 : 200,
-                        decoration: BoxDecoration(
-                          color: Theme.of(context).hintColor.withOpacity(0.6),
-                          borderRadius: BorderRadius.circular(5),
-                        ),
-                        padding: const EdgeInsets.all(5),
-                        child: Text(
+                //wrapper for stacks
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: Theme.of(context).hintColor.withOpacity(0.6),
+                    borderRadius: BorderRadius.circular(5),
+                  ),
+                  padding: const EdgeInsets.all(5),
+                  child: AnimatedTextKit(
+                    animatedTexts: [
+                      ...myStacks.map((item) {
+                        return TyperAnimatedText(
                           item,
-                          overflow: TextOverflow.ellipsis,
-                          maxLines: 6,
-                          style: Theme.of(context).textTheme.bodySmall,
-                        ),
-                      );
-                    }),
-                    // ListView.builder(
-                    //   shrinkWrap: true,
-                    //   physics: const NeverScrollableScrollPhysics(),
-                    //   itemCount: myStacks.length,
-                    //   itemBuilder: (context, index) {
-                    //     return Padding(
-                    //       padding: const EdgeInsets.symmetric(vertical: 8.0),
-                    //       child: Row(
-                    //         mainAxisAlignment: MainAxisAlignment.center,
-                    //         children: [
-                    //           Container(
-                    //             width: widget.width <= 600 ? 150 : 200,
-                    //             padding: const EdgeInsets.all(5),
-                    //             child: Text(
-                    //               myStacks[index],
-                    //               overflow: TextOverflow.ellipsis,
-                    //               maxLines: 6,
-                    //               style: Theme.of(context).textTheme.bodySmall,
-                    //             ),
-                    //           ),
-                    //         ],
-                    //       ),
-                    //     );
-                    //   },
-                    // ),
-                  ],
+                          // overflow: TextOverflow.ellipsis,
+                          // maxLines: 6,
+                          textAlign: TextAlign.start,
+                          textStyle: Theme.of(context).textTheme.bodyMedium,
+                        );
+                      }),
+                    ],
+                    repeatForever: true,
+                    pause: const Duration(milliseconds: 2000),
+                  ),
                 ),
               ),
             ],
