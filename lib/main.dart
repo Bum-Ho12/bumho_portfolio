@@ -93,7 +93,7 @@ class _MyHomePageState extends State<MyHomePage> {
               child: Text(
                 'Projects',
                 style: width < 400
-                    ? Theme.of(context).textTheme.displaySmall
+                    ? Theme.of(context).textTheme.headlineSmall
                     : width < 600
                         ? Theme.of(context).textTheme.displayMedium
                         : Theme.of(context).textTheme.displayLarge,
@@ -116,7 +116,7 @@ class _MyHomePageState extends State<MyHomePage> {
               child: Text(
                 'My Career',
                 style: width < 400
-                    ? Theme.of(context).textTheme.displaySmall
+                    ? Theme.of(context).textTheme.headlineSmall
                     : width < 600
                         ? Theme.of(context).textTheme.displayMedium
                         : Theme.of(context).textTheme.displayLarge,
@@ -139,7 +139,7 @@ class _MyHomePageState extends State<MyHomePage> {
               child: Text(
                 'Contact Me',
                 style: width < 400
-                    ? Theme.of(context).textTheme.displaySmall
+                    ? Theme.of(context).textTheme.headlineSmall
                     : width < 600
                         ? Theme.of(context).textTheme.displayMedium
                         : Theme.of(context).textTheme.displayLarge,
@@ -156,10 +156,8 @@ class _MyHomePageState extends State<MyHomePage> {
                     Text(
                       'Resume',
                       style: width < 400
-                          ? Theme.of(context).textTheme.displaySmall
-                          : width < 600
-                              ? Theme.of(context).textTheme.displayMedium
-                              : Theme.of(context).textTheme.headlineMedium,
+                          ? Theme.of(context).textTheme.headlineSmall
+                          : Theme.of(context).textTheme.headlineMedium,
                     ),
                     const Icon(
                       Icons.file_download_outlined,

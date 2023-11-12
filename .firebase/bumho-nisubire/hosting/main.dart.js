@@ -69981,39 +69981,37 @@ else A.C7("I do nothing...")
 return A.a_(null,r)}})
 return A.a0($async$j4,r)},
 O(a){var s,r,q,p,o,n=this,m=null,l="My Career",k=A.b5(a,m,t.w).w.a.a,j=k<400
-if(j)s=A.K(a).p3.c
+if(j)s=A.K(a).p3.f
 else s=k<600?A.K(a).p3.b:A.K(a).p3.a
 s=A.eE(!1,A.bv("Projects",m,m,m,s,m),new A.ab9(n,k))
-if(j)r=A.K(a).p3.c
+if(j)r=A.K(a).p3.f
 else r=k<600?A.K(a).p3.b:A.K(a).p3.a
 r=A.eE(!1,A.bv(l,m,m,m,r,m),new A.aba(n,k))
-if(j)q=A.K(a).p3.c
+if(j)q=A.K(a).p3.f
 else q=k<600?A.K(a).p3.b:A.K(a).p3.a
 q=A.eE(!1,A.bv("Contact Me",m,m,m,q,m),new A.abb(n,k))
-if(j)j=A.K(a).p3.c
-else j=k<600?A.K(a).p3.b:A.K(a).p3.e
 p=t.F
-j=A.cO(A.a([s,r,q,B.wv,A.eE(!0,A.cO(A.a([A.bv("Resume",m,m,m,j,m),B.EK],p),B.v,B.O,B.N),new A.abc(n))],p),B.v,B.IB,B.N)
-s=A.K(a).db.a
-s=A.S(B.c.aC(25.5),s>>>16&255,s>>>8&255,s&255)
-r=$.aiH
-q=t.l7
-o=A.ad(r)
-if(k>1000){r=A.a7b(A.a9(new A.a6(r,new A.abd(a),o.h("a6<1,j>")),!0,q),5,5)
+q=A.cO(A.a([s,r,q,B.wv,A.eE(!0,A.cO(A.a([A.bv("Resume",m,m,m,j?A.K(a).p3.f:A.K(a).p3.e,m),B.EK],p),B.v,B.O,B.N),new A.abc(n))],p),B.v,B.IB,B.N)
+j=A.K(a).db.a
+j=A.S(B.c.aC(25.5),j>>>16&255,j>>>8&255,j&255)
+s=$.aiH
+r=t.l7
+o=A.ad(s)
+if(k>1000){s=A.a7b(A.a9(new A.a6(s,new A.abd(a),o.h("a6<1,j>")),!0,r),5,5)
 o=$.aiH
-q=A.dY(A.a([new A.qa(k,m),A.bD(m,A.dY(A.a([r,B.a8,A.a7b(A.a9(new A.a6(o,new A.abe(a),A.ad(o).h("a6<1,j>")),!0,q),5,5)],p),B.v,B.O),B.k,m,m,m,m,m,m,B.a4,m,m,k)],p),B.v,B.aw)
-r=q}else{r=A.a7b(A.a9(new A.a6(r,new A.abf(a),o.h("a6<1,j>")),!0,q),14,14)
+r=A.dY(A.a([new A.qa(k,m),A.bD(m,A.dY(A.a([s,B.a8,A.a7b(A.a9(new A.a6(o,new A.abe(a),A.ad(o).h("a6<1,j>")),!0,r),5,5)],p),B.v,B.O),B.k,m,m,m,m,m,m,B.a4,m,m,k)],p),B.v,B.aw)
+s=r}else{s=A.a7b(A.a9(new A.a6(s,new A.abf(a),o.h("a6<1,j>")),!0,r),14,14)
 o=$.aiH
-q=A.dY(A.a([new A.qa(k,m),A.bD(m,A.dY(A.a([r,B.a8,A.a7b(A.a9(new A.a6(o,new A.abg(a),A.ad(o).h("a6<1,j>")),!0,q),5,5)],p),B.v,B.O),B.k,m,m,m,m,m,m,B.a4,m,m,k)],p),B.v,B.aw)
-r=q}s=A.bD(m,r,B.k,m,m,new A.bS(s,m,m,B.fB,m,m,B.V),m,m,B.a4,B.a4,m,m,m)
-r=A.bv("Projects and Works",m,m,m,A.K(a).p3.a,m)
-q=k>400?A.bv("Scroll for more",m,m,m,A.K(a).p3.z,m):B.ak
-q=A.bD(m,A.cO(A.a([r,B.wv,new A.qd(new A.abh(n),new A.abi(),"click to see a list of all projects,\n select from list to navigate to section",A.cO(A.a([q,A.v6(B.Ew,A.K(a).db,m)],p),B.v,B.O,B.N),m,t.q3)],p),B.v,B.O,B.N),B.k,m,m,m,m,m,m,B.a4,m,m,m)
-r=k<=800?230:260
-p=A.a([s,B.a8,q,B.a8,A.bD(m,new A.vx(k,n.e,m),B.k,m,m,new A.bS(A.K(a).go,m,m,B.fB,m,m,B.V),m,r,B.l1,B.E0,m,m,m),B.a8,A.bD(m,A.bv(l,m,m,m,A.K(a).p3.e,m),B.k,m,m,m,m,m,m,B.a4,m,m,m),B.a8,new A.e6(B.a4,new A.Cn(k,m),m),B.a8,new A.Hp(k,m)],p)
-r=A.aA([null,0],t.LO,t.S)
-s=m
-return new A.xu(new A.ty(j,!0,new A.OQ(m,m,1/0,56),m),A.D4(new A.vA(new A.a4G(!0,!0,!0,p,r),m,B.at,!1,n.d,m,s,!1,m,11,B.bg,B.vK,m,B.au,m),m,m),m)}}
+r=A.dY(A.a([new A.qa(k,m),A.bD(m,A.dY(A.a([s,B.a8,A.a7b(A.a9(new A.a6(o,new A.abg(a),A.ad(o).h("a6<1,j>")),!0,r),5,5)],p),B.v,B.O),B.k,m,m,m,m,m,m,B.a4,m,m,k)],p),B.v,B.aw)
+s=r}j=A.bD(m,s,B.k,m,m,new A.bS(j,m,m,B.fB,m,m,B.V),m,m,B.a4,B.a4,m,m,m)
+s=A.bv("Projects and Works",m,m,m,A.K(a).p3.a,m)
+r=k>400?A.bv("Scroll for more",m,m,m,A.K(a).p3.z,m):B.ak
+r=A.bD(m,A.cO(A.a([s,B.wv,new A.qd(new A.abh(n),new A.abi(),"click to see a list of all projects,\n select from list to navigate to section",A.cO(A.a([r,A.v6(B.Ew,A.K(a).db,m)],p),B.v,B.O,B.N),m,t.q3)],p),B.v,B.O,B.N),B.k,m,m,m,m,m,m,B.a4,m,m,m)
+s=k<=800?230:260
+p=A.a([j,B.a8,r,B.a8,A.bD(m,new A.vx(k,n.e,m),B.k,m,m,new A.bS(A.K(a).go,m,m,B.fB,m,m,B.V),m,s,B.l1,B.E0,m,m,m),B.a8,A.bD(m,A.bv(l,m,m,m,A.K(a).p3.e,m),B.k,m,m,m,m,m,m,B.a4,m,m,m),B.a8,new A.e6(B.a4,new A.Cn(k,m),m),B.a8,new A.Hp(k,m)],p)
+s=A.aA([null,0],t.LO,t.S)
+j=m
+return new A.xu(new A.ty(q,!0,new A.OQ(m,m,1/0,56),m),A.D4(new A.vA(new A.a4G(!0,!0,!0,p,s),m,B.at,!1,n.d,m,j,!1,m,11,B.bg,B.vK,m,B.au,m),m,m),m)}}
 A.ab9.prototype={
 $0(){var s=this.a
 s.au(new A.ab8(s,this.b))},
