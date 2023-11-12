@@ -166,21 +166,30 @@ class _PersonalInfoState extends State<PersonalInfo> {
                     ],
                   ),
                   padding: const EdgeInsets.all(10),
-                  child: AnimatedTextKit(
-                    animatedTexts: [
-                      ...myStacks.map((item) {
-                        return TyperAnimatedText(
-                          item,
-                          // overflow: TextOverflow.ellipsis,
-                          // maxLines: 6,
+                  child: widget.width < 400
+                      ? Text(
+                          myStacks[0],
+                          overflow: TextOverflow.ellipsis,
+                          maxLines: 10,
                           textAlign: TextAlign.start,
-                          textStyle: Theme.of(context).textTheme.bodyMedium,
-                        );
-                      }),
-                    ],
-                    repeatForever: true,
-                    pause: const Duration(milliseconds: 2000),
-                  ),
+                          style: Theme.of(context).textTheme.bodyMedium,
+                        )
+                      : AnimatedTextKit(
+                          animatedTexts: [
+                            ...myStacks.map((item) {
+                              return TyperAnimatedText(
+                                item,
+                                // overflow: TextOverflow.ellipsis,
+                                // maxLines: 6,
+                                textAlign: TextAlign.start,
+                                textStyle:
+                                    Theme.of(context).textTheme.bodyMedium,
+                              );
+                            }),
+                          ],
+                          repeatForever: true,
+                          pause: const Duration(milliseconds: 2000),
+                        ),
                 ),
               ),
             ],

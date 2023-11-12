@@ -92,13 +92,12 @@ class _MyHomePageState extends State<MyHomePage> {
               },
               child: Text(
                 'Projects',
-                style: Theme.of(context).textTheme.displayLarge,
+                style: width < 400
+                    ? Theme.of(context).textTheme.displaySmall
+                    : width < 600
+                        ? Theme.of(context).textTheme.displayMedium
+                        : Theme.of(context).textTheme.displayLarge,
               ),
-              // icon: Icon(
-              //   Icons.apps,
-              //   size: width <= 700 ? 24 : 30,
-              // ),
-              // tooltip: 'Projects and apps worked upon',
             ),
             TextButton(
               onPressed: () {
@@ -116,13 +115,12 @@ class _MyHomePageState extends State<MyHomePage> {
               },
               child: Text(
                 'My Career',
-                style: Theme.of(context).textTheme.displayLarge,
+                style: width < 400
+                    ? Theme.of(context).textTheme.displaySmall
+                    : width < 600
+                        ? Theme.of(context).textTheme.displayMedium
+                        : Theme.of(context).textTheme.displayLarge,
               ),
-              // icon: Icon(
-              //   Icons.cast_for_education_outlined,
-              //   size: width <= 700 ? 24 : 30,
-              // ),
-              // tooltip: 'Career section',
             ),
             TextButton(
               onPressed: () {
@@ -140,7 +138,11 @@ class _MyHomePageState extends State<MyHomePage> {
               },
               child: Text(
                 'Contact Me',
-                style: Theme.of(context).textTheme.displayLarge,
+                style: width < 400
+                    ? Theme.of(context).textTheme.displaySmall
+                    : width < 600
+                        ? Theme.of(context).textTheme.displayMedium
+                        : Theme.of(context).textTheme.displayLarge,
               ),
             ),
             const Spacer(),
@@ -153,7 +155,11 @@ class _MyHomePageState extends State<MyHomePage> {
                   children: [
                     Text(
                       'Resume',
-                      style: Theme.of(context).textTheme.headlineMedium,
+                      style: width < 400
+                          ? Theme.of(context).textTheme.displaySmall
+                          : width < 600
+                              ? Theme.of(context).textTheme.displayMedium
+                              : Theme.of(context).textTheme.headlineMedium,
                     ),
                     const Icon(
                       Icons.file_download_outlined,
