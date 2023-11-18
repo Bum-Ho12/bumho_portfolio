@@ -8,6 +8,7 @@ import 'package:portfolio/views/footer.dart';
 import 'package:portfolio/views/personal_display.dart';
 // import 'package:portfolio/views/projects.dart';
 import 'package:flutter/material.dart';
+import 'package:portfolio/views/project_type_bar.dart';
 import 'package:portfolio/views/software_projects.dart';
 import 'app_theme/theme_manager.dart';
 import 'data/project_data.dart';
@@ -451,6 +452,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 ],
               ),
             ),
+            columnSizeSpace,
+            const ProjectBar(),
             columnSizeSpace,
             Container(
               height: width <= 800 ? 230 : 260,

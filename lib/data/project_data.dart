@@ -2,11 +2,11 @@ List projectData = [
   {
     'title': 'YetuBlog.com',
     'readMe': 'Blog developed with react native and Django.'
-    'Hosted and available to the public, it is a paid project for a client.'
-    'Client name is strictly undisclosed.',
+        'Hosted and available to the public, it is a paid project for a client.'
+        'Client name is strictly undisclosed.',
     'image': 'assets/yetublog.png',
     'application': false,
-    'status': 'in progress', // either complete, initial stage or in progress
+    'status': 'complete', // either complete, initial stage or in progress
     'file': '',
     'github_url': 'https://yetublog.com/',
     'web': true,
@@ -16,7 +16,7 @@ List projectData = [
     'readMe': 'project to develop an e-commerce with Flutter and Django.',
     'image': 'assets/eventend.png',
     'application': true,
-    'status': 'complete', // either complete, initial stage or in progress
+    'status': 'in progress', // either complete, initial stage or in progress
     'file': 'apps/eventend_app-release.apk',
     'github_url': 'https://github.com/Bum-Ho12/EventEnd',
     'web': false,
@@ -28,7 +28,7 @@ List projectData = [
             'and applications.',
     'image': 'assets/cnn_ml.png',
     'application': false,
-    'status': 'in progress', // either complete, initial stage or in progress
+    'status': 'practice', // either complete, initial stage or in progress
     'file': 'assets/',
     'github_url': 'https://github.com/Bum-Ho12/Neural-Network-Scratch',
     'web': false,
@@ -50,7 +50,7 @@ List projectData = [
         'extract face from an image to be fed into the model generated.',
     'image': 'assets/face.png',
     'application': false,
-    'status': 'in progress', // either complete, initial stage or in progress
+    'status': 'demos', // either complete, initial stage or in progress
     'file': 'assets/',
     'github_url':
         'https://github.com/Bum-Ho12/face-detection-and-gender-determination-with-python',

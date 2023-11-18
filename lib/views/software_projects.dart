@@ -20,6 +20,9 @@ class ListOfSoftwareProjects extends StatefulWidget {
 }
 
 class _ListOfSoftwareProjectsState extends State<ListOfSoftwareProjects> {
+  // container opacity
+  var opacity = 0.5;
+  var iconColor = const Color(0xFF3B1A4D);
   // application downloader
   void fileDownloader(targetFile) async {
     final byteData = await rootBundle.load('$targetFile');
@@ -51,8 +54,17 @@ class _ListOfSoftwareProjectsState extends State<ListOfSoftwareProjects> {
         itemCount: projectData.length,
         controller: widget.projectController,
         itemBuilder: (context, index) {
+          Color? color = projectData[index]['status'] == 'complete'
+              ? Colors.red[300]
+              : projectData[index]['status'] == 'in progress'
+                  ? Colors.yellow[200]
+                  : projectData[index]['status'] == 'practice'
+                      ? Colors.green[300]
+                      : Colors.orange[300];
           return Container(
-            margin: viewsMargin,
+            margin: widget.width <= 600
+                ? const EdgeInsets.symmetric(vertical: 2, horizontal: 5)
+                : viewsMargin,
             padding: const EdgeInsets.all(5.0),
             width: widget.width <= 500
                 ? widget.width * 0.5
@@ -64,12 +76,10 @@ class _ListOfSoftwareProjectsState extends State<ListOfSoftwareProjects> {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
               color: Theme.of(context).scaffoldBackgroundColor,
-              boxShadow: [
-                BoxShadow(
-                  blurRadius: 10,
-                  color: Theme.of(context).primaryColor.withOpacity(0.7),
-                ),
-              ],
+              border: Border.all(
+                color: color!.withOpacity(0.4),
+                width: 2,
+              ),
             ),
             child: Column(
               children: [
@@ -140,21 +150,12 @@ class _ListOfSoftwareProjectsState extends State<ListOfSoftwareProjects> {
                     ),
                     Container(
                       decoration: BoxDecoration(
-                        color: Theme.of(context).hintColor.withOpacity(0.5),
+                        color: color.withOpacity(0.7),
                         borderRadius: BorderRadius.circular(10),
-                        boxShadow: [
-                          BoxShadow(
-                            blurRadius: 20,
-                            color: Theme.of(context)
-                                .scaffoldBackgroundColor
-                                .withOpacity(0.7),
-                          ),
-                          BoxShadow(
-                            blurRadius: 20,
-                            color:
-                                Theme.of(context).primaryColor.withOpacity(0.7),
-                          ),
-                        ],
+                        border: Border.all(
+                          color: color,
+                          width: 0.5,
+                        ),
                       ),
                       child: Row(
                         mainAxisAlignment: viewsEndAlignment,
@@ -174,9 +175,8 @@ class _ListOfSoftwareProjectsState extends State<ListOfSoftwareProjects> {
                                       },
                                       icon: Icon(
                                         Icons.cloud_download_rounded,
-                                        color: Theme.of(context)
-                                            .floatingActionButtonTheme
-                                            .splashColor,
+                                        color: iconColor,
+                                        weight: 2,
                                       ),
                                       tooltip: 'Download application',
                                     ),
@@ -199,9 +199,8 @@ class _ListOfSoftwareProjectsState extends State<ListOfSoftwareProjects> {
                                         projectData[index]['web'] == false
                                             ? Icons.read_more_rounded
                                             : Icons.launch,
-                                        color: Theme.of(context)
-                                            .floatingActionButtonTheme
-                                            .splashColor,
+                                        color: iconColor,
+                                        weight: 2,
                                       ),
                                       tooltip:
                                           projectData[index]['web'] == false
